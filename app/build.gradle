@@ -39,6 +39,9 @@ android {
         pickFirst 'META-INF/atomicfu.kotlin_module'
         pickFirst 'META-INF/kotlinx-coroutines-io.kotlin_module'
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -55,6 +58,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
 
+    // Recycler View
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
     // Tensor flow Lite
     implementation 'org.tensorflow:tensorflow-lite:2.2.0'
 
@@ -62,7 +68,6 @@ dependencies {
     implementation 'com.airbnb.android:lottie:3.5.0'
 
     // Coil
-    //Coil
     implementation 'io.coil-kt:coil:1.1.0'
 
     // Testing

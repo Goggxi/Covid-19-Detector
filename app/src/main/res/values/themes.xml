@@ -14,9 +14,17 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="textStyle_8">
+        <item name="fontFamily">@font/nunito_sans</item>
+        <item name="android:textSize">8sp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="fontStyle">normal</item>
+    </style>
+
     <style name="textStyle_8_bold">
         <item name="fontFamily">@font/nunito_sans_bold</item>
         <item name="android:textSize">8sp</item>
+        <item name="android:textColor">@color/black</item>
         <item name="fontStyle">normal</item>
     </style>
 
@@ -24,6 +32,13 @@
         <item name="fontFamily">@font/nunito_sans</item>
         <item name="android:textSize">10sp</item>
         <item name="android:textColor">@color/textColor1</item>
+        <item name="fontStyle">normal</item>
+    </style>
+
+    <style name="textStyle_10_semiBold">
+        <item name="fontFamily">@font/nunito_sans_semibold</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/black</item>
         <item name="fontStyle">normal</item>
     </style>
 
@@ -57,6 +72,11 @@
     <style name="exp_toolbar_title" parent="Theme.Covid19Detector">
         <item name="android:textColor">@android:color/transparent</item>
         <item name="android:textSize">0sp</item>
+    </style>
+
+    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+<!--        <item name="cornerFamily">cut</item>-->
+        <item name="cornerSize">10dp</item>
     </style>
 
 </resources>

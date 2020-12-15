@@ -5,17 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
 import coil.transform.RoundedCornersTransformation
 import com.goggxi.covid19detector.R
+import com.goggxi.covid19detector.data.model.News
+import com.goggxi.covid19detector.databinding.FragmentHomeBinding
 
 
 class HomeFragment : Fragment() {
+    private lateinit var binding: FragmentHomeBinding
+    private val list = ArrayList<News>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,23 +29,86 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val expandedImage = view.findViewById<ImageView>(R.id.expandedImage)
 
-        expandedImage.load(R.drawable.bg_home){
+        binding = FragmentHomeBinding.inflate(layoutInflater)
+        activity?.setContentView(binding.root)
+
+        binding.recyclerNews.setHasFixedSize(true)
+
+        binding.expandedImage.load(R.drawable.bg_home){
             crossfade(true)
             crossfade(500)
             transformations(RoundedCornersTransformation(0F, 0F, 80F, 80F))
         }
 
-        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
-
         if(activity is AppCompatActivity){
-            (activity as AppCompatActivity).setSupportActionBar(toolbar)
+            (activity as AppCompatActivity).setSupportActionBar(binding.toolbar)
         }
 
-        val locationDropdownMenu = view.findViewById<AutoCompleteTextView>(R.id.locationDropdownMenu)
-        val location = arrayOf("Sulawesi Selatan", "Sulawesi Tengah", "DKI Jakarta", "Bali", "NTT")
+        val location = arrayOf(
+                "Total Di Indonesia",
+                "ACEH",
+                "BALI",
+                "BANTEN",
+                "BENGKULU",
+                "DKI JAKARTA",
+                "DAERAH ISTIMEWA YOGYAKARTA",
+                "GORONTALO",
+                "JAWA TIMUR",
+                "JAWA TENGAH",
+                "JAWA BARAT",
+                "JAMBI",
+                "KALIMANTAN TIMUR",
+                "KALIMANTAN TENGAH",
+                "KALIMANTAN BARAT",
+                "KALIMANTAN UTARA",
+                "KALIMANTAN SELATAN",
+                "KEPULAUAN RIAU",
+                "KEPULAUAN BANGKA BELITUNG",
+                "LAMPUNG",
+                "MALUKU",
+                "MALUKU UTARA",
+                "NUSA TENGGARA TIMUR",
+                "NUSA TENGGARA BARAT",
+                "PAPUA",
+                "PAPUA BARAT",
+                "RIAU",
+                "SULAWESI SELATAN",
+                "SUMATERA BARAT",
+                "SUMATERA UTARA",
+                "SUMATERA SELATAN",
+                "SULAWESI TENGAH",
+                "SULAWESI BARAT",
+                "SULAWESI UTARA",
+                "SULAWESI TENGGARA")
         val locationAdapter = ArrayAdapter(requireContext(), R.layout.location_dropdown_item, location)
-        locationDropdownMenu.setAdapter(locationAdapter)
+        binding.locationDropdownMenu.setAdapter(locationAdapter)
+
+        list.addAll(getListNews())
+        showRecyclerList()
+    }
+
+    private fun getListNews(): ArrayList<News> {
+        val title = resources.getStringArray(R.array.dataTitle)
+        val type = resources.getStringArray(R.array.dataType)
+        val time = resources.getStringArray(R.array.dataTime)
+        val dataPhoto = resources.getStringArray(R.array.dataPhoto)
+        val listNews = ArrayList<News>()
+        for (position in title.indices) {
+            val news = News(
+                title[position],
+                type[position],
+                time[position],
+                dataPhoto[position]
+            )
+            listNews.add(news)
+        }
+        return listNews
+    }
+
+    private fun showRecyclerList() {
+        binding.recyclerNews.layoutManager = LinearLayoutManager(context)
+        val listNewsAdapter = ListNewsAdapter(list)
+        binding.recyclerNews.adapter = listNewsAdapter
     }
 }
