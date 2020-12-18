@@ -6,7 +6,7 @@ package com.goggxi.covid19detector.data.api
  */
 class ApiHelper (private val apiService: ApiService) {
 
-    suspend fun getProvinsi() = apiService.getProvinsi()
+    suspend fun getProvince() = apiService.getProvince()
 
 //    suspend fun createUser(nama : String, email: String, password: String, image: String) = apiService.createUser(nama, email, password, image)
 //

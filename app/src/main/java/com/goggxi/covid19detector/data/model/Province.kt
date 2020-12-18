@@ -1,7 +1,7 @@
 package com.goggxi.covid19detector.data.model
 
 
-data class Provinsi(
+data class Province(
 		val penambahan: Penambahan? = null,
 		val doc_count: Double? = null,
 		val lokasi: Lokasi? = null,

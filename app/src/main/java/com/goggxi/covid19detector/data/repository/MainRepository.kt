@@ -10,7 +10,7 @@ import com.goggxi.covid19detector.data.api.ApiHelper
 
 class MainRepository(private val apiHelper: ApiHelper) {
 
-    suspend fun getProvinsi() = apiHelper.getProvinsi()
+    suspend fun getProvince() = apiHelper.getProvince()
 
 //    suspend fun createUser(nama : String, email: String, password: String, image: String) = apiHelper.createUser(nama, email, password, image)
 //

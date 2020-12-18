@@ -14,8 +14,8 @@ import com.goggxi.covid19detector.data.repository.MainRepository
 class ViewModelFactory(private val apiHelper: ApiHelper) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(ProvinsiViewModel::class.java)) {
-            return ProvinsiViewModel(MainRepository(apiHelper)) as T
+        if (modelClass.isAssignableFrom(ProvinceViewModel::class.java)) {
+            return ProvinceViewModel(MainRepository(apiHelper)) as T
         }
         throw IllegalArgumentException("Unknown class name")
     }

@@ -1,15 +1,12 @@
 package com.goggxi.covid19detector.ui.home
 
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -23,18 +20,17 @@ import com.goggxi.covid19detector.R
 import com.goggxi.covid19detector.data.api.ApiClient
 import com.goggxi.covid19detector.data.api.ApiHelper
 import com.goggxi.covid19detector.data.model.News
-import com.goggxi.covid19detector.data.model.Provinsi
+import com.goggxi.covid19detector.data.model.Province
 import com.goggxi.covid19detector.databinding.FragmentHomeBinding
-import com.goggxi.covid19detector.databinding.ShapeTerkonfirmasiBinding
 import com.goggxi.covid19detector.ui.adapter.ListNewsAdapter
-import com.goggxi.covid19detector.ui.viewmodel.ProvinsiViewModel
+import com.goggxi.covid19detector.ui.viewmodel.ProvinceViewModel
 import com.goggxi.covid19detector.ui.viewmodel.ViewModelFactory
 import com.goggxi.covid19detector.utils.Status
 
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var provinsiViewModel: ProvinsiViewModel
+    private lateinit var provinsiViewModel: ProvinceViewModel
 
     private val list = ArrayList<News>()
 
@@ -117,12 +113,12 @@ class HomeFragment : Fragment() {
         super.onStart()
         binding.locationDropdownMenu.setText("SULAWESI SELATAN")
         val locationDefault = "SULAWESI SELATAN"
-        getProvinsi(locationDefault)
+        getProvince(locationDefault)
 
         binding.locationDropdownMenu.onItemClickListener = AdapterView.OnItemClickListener {
             parent, view, position, id ->
             val selectedItem = parent.getItemAtPosition(position).toString()
-            getProvinsi(selectedItem)
+            getProvince(selectedItem)
 //            Toast.makeText(context,"Selected : $selectedItem",Toast.LENGTH_SHORT).show()
         }
     }
@@ -131,11 +127,11 @@ class HomeFragment : Fragment() {
         provinsiViewModel = ViewModelProviders.of(
                 this,
                 ViewModelFactory(ApiHelper(ApiClient().getApiService()))
-        ).get(ProvinsiViewModel::class.java)
+        ).get(ProvinceViewModel::class.java)
     }
 
-    private fun getProvinsi(key : String) {
-        provinsiViewModel.getProvinsi().observe(
+    private fun getProvince(key : String) {
+        provinsiViewModel.getProvince().observe(
                 viewLifecycleOwner,
                 {
                     it?.let { resource ->
@@ -145,7 +141,7 @@ class HomeFragment : Fragment() {
                                 if (resource.data?.isSuccessful!!) {
                                     Log.d("getDate: ", resource.data.body()?.last_date.toString())
                                     Log.d("getProvinsi: ", resource.data.body()?.list_data.toString())
-                                    showProvinsi(resource.data.body()?.list_data!! as List<Provinsi>, key)
+                                    showProvince(resource.data.body()?.list_data!! as List<Province>, key)
                                     binding.textDateContent.text = resource.data.body()?.last_date
                                 } else {
                                     Toast.makeText(context, "Gagal Load Data Provinsi", Toast.LENGTH_SHORT).show()
@@ -164,8 +160,8 @@ class HomeFragment : Fragment() {
                 })
     }
 
-    private fun showProvinsi(provinsi : List<Provinsi> , key : String) {
-        for (prov in provinsi){
+    private fun showProvince(province : List<Province>, key : String) {
+        for (prov in province){
             if (prov.key == key){
                 binding.include.textTerkonfirmasi.text = prov.jumlah_dirawat.toString()
                 binding.include2.textKasus.text = prov.jumlah_kasus.toString()
