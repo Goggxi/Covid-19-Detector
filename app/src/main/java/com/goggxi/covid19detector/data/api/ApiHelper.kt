@@ -8,6 +8,8 @@ class ApiHelper (private val apiService: ApiService) {
 
     suspend fun getProvince() = apiService.getProvince()
 
+    suspend fun getNews() = apiService.getNews()
+
 //    suspend fun createUser(nama : String, email: String, password: String, image: String) = apiService.createUser(nama, email, password, image)
 //
 //    suspend fun loginGoogle(code : String) = apiService.loginGoogle(code)

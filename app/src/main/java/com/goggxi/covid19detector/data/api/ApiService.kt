@@ -1,7 +1,9 @@
 package com.goggxi.covid19detector.data.api
 
+import com.goggxi.covid19detector.data.remote.NewsResponse
 import com.goggxi.covid19detector.data.remote.ProvinceResponse
-import com.goggxi.covid19detector.utils.Constants.PROVINSI_URL
+import com.goggxi.covid19detector.utils.Constants.NEWS_URL
+import com.goggxi.covid19detector.utils.Constants.PROVINCE_URL
 import retrofit2.Response
 import retrofit2.http.GET
 
@@ -11,9 +13,13 @@ import retrofit2.http.GET
  */
 interface ApiService {
 
-    @GET(PROVINSI_URL)
+    @GET(PROVINCE_URL)
     suspend fun getProvince(
     ): Response<ProvinceResponse>
+
+    @GET(NEWS_URL)
+    suspend fun getNews(
+    ): Response<NewsResponse>
 
 //    @GET(PROVINSI_URL)
 //    suspend fun getProvinsi(

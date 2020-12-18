@@ -19,10 +19,11 @@ import coil.transform.RoundedCornersTransformation
 import com.goggxi.covid19detector.R
 import com.goggxi.covid19detector.data.api.ApiClient
 import com.goggxi.covid19detector.data.api.ApiHelper
-import com.goggxi.covid19detector.data.model.News
 import com.goggxi.covid19detector.data.model.Province
+import com.goggxi.covid19detector.data.remote.NewsResponse
 import com.goggxi.covid19detector.databinding.FragmentHomeBinding
-import com.goggxi.covid19detector.ui.adapter.ListNewsAdapter
+import com.goggxi.covid19detector.ui.adapter.NewsAdapter
+import com.goggxi.covid19detector.ui.viewmodel.NewsViewModel
 import com.goggxi.covid19detector.ui.viewmodel.ProvinceViewModel
 import com.goggxi.covid19detector.ui.viewmodel.ViewModelFactory
 import com.goggxi.covid19detector.utils.Status
@@ -30,9 +31,9 @@ import com.goggxi.covid19detector.utils.Status
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var provinsiViewModel: ProvinceViewModel
+    private lateinit var provinceViewModel: ProvinceViewModel
+    private lateinit var newsViewModel: NewsViewModel
 
-    private val list = ArrayList<News>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,7 +69,6 @@ class HomeFragment : Fragment() {
             location
         )
         binding.locationDropdownMenu.setAdapter(locationAdapter)
-//        binding.spinnerProvinsi
 
         // Nav host fragment
         val host: NavHostFragment = activity?.supportFragmentManager
@@ -79,34 +79,6 @@ class HomeFragment : Fragment() {
 
         // Setup bottom navigation view
         binding.bottomNavigationId.setupWithNavController(navController)
-
-        //Setup News
-        list.addAll(getListNews())
-        showRecyclerList()
-
-
-        // Set a dismiss listener for auto complete text view
-//        binding.locationDropdownMenu.setOnDismissListener {
-//            Toast.makeText(context,"Suggestion closed.",Toast.LENGTH_SHORT).show()
-//        }
-
-
-        // Set a click listener for root layout
-//        root_layout.setOnClickListener{
-//            val text = auto_complete_text_view.text
-//            Toast.makeText(applicationContext,"Inputted : $text",Toast.LENGTH_SHORT).show()
-//        }
-
-
-        // Set a focus change listener for auto complete text view
-//        binding.locationDropdownMenu.onFocusChangeListener = View.OnFocusChangeListener{
-//            view, b ->
-//            if(b){
-//                // Display the suggestion dropdown on focus
-//                binding.locationDropdownMenu.showDropDown()
-//            }
-//        }
-
     }
 
     override fun onStart() {
@@ -119,19 +91,25 @@ class HomeFragment : Fragment() {
             parent, view, position, id ->
             val selectedItem = parent.getItemAtPosition(position).toString()
             getProvince(selectedItem)
-//            Toast.makeText(context,"Selected : $selectedItem",Toast.LENGTH_SHORT).show()
         }
+
+        getNews()
     }
 
     private fun setupViewModel() {
-        provinsiViewModel = ViewModelProviders.of(
+        provinceViewModel = ViewModelProviders.of(
                 this,
                 ViewModelFactory(ApiHelper(ApiClient().getApiService()))
         ).get(ProvinceViewModel::class.java)
+
+        newsViewModel = ViewModelProviders.of(
+                this,
+                ViewModelFactory(ApiHelper(ApiClient().getApiServiceNews()))
+        ).get(NewsViewModel::class.java)
     }
 
     private fun getProvince(key : String) {
-        provinsiViewModel.getProvince().observe(
+        provinceViewModel.getProvince().observe(
                 viewLifecycleOwner,
                 {
                     it?.let { resource ->
@@ -177,27 +155,38 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun getListNews(): ArrayList<News> {
-        val title = resources.getStringArray(R.array.dataTitle)
-        val type = resources.getStringArray(R.array.dataType)
-        val time = resources.getStringArray(R.array.dataTime)
-        val dataPhoto = resources.getStringArray(R.array.dataPhoto)
-        val listNews = ArrayList<News>()
-        for (position in title.indices) {
-            val news = News(
-                title[position],
-                type[position],
-                time[position],
-                dataPhoto[position]
-            )
-            listNews.add(news)
-        }
-        return listNews
+    private fun getNews() {
+        newsViewModel.getNews().observe(
+                viewLifecycleOwner,
+                {
+                    it?.let { resource ->
+                        when (resource.status) {
+                            Status.SUCCESS -> {
+                                binding.progressBar.visibility = View.GONE
+                                if (resource.data?.isSuccessful!!) {
+                                    Log.d( "getNews: ", resource.data.body().toString())
+                                    showNews(resource.data.body()!!)
+                                } else {
+                                    Toast.makeText(context, "Gagal Load Data Provinsi", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                            Status.ERROR -> {
+                                binding.progressBar.visibility = View.GONE
+                                Toast.makeText(context, "Gagal Memuat Data", Toast.LENGTH_SHORT).show()
+                                Log.e("error", it.message.toString())
+                            }
+                            Status.LOADING -> {
+                                binding.progressBar.visibility = View.VISIBLE
+                            }
+                        }
+                    }
+                })
     }
 
-    private fun showRecyclerList() {
+    private fun showNews(newsResponse: NewsResponse) {
+        val data = newsResponse.data
         binding.recyclerNews.layoutManager = LinearLayoutManager(context)
-        val listNewsAdapter = ListNewsAdapter(list)
-        binding.recyclerNews.adapter = listNewsAdapter
+        val newsAdapter =  NewsAdapter(data)
+        binding.recyclerNews.adapter = newsAdapter
     }
 }

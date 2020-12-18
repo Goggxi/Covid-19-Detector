@@ -8,5 +8,8 @@ object Constants {
 //    const val INDONESIA_URL = "indonesia"
 
     const val BASE_URL = "https://data.covid19.go.id/public/api/"
-    const val PROVINSI_URL = "prov.json"
+    const val PROVINCE_URL = "prov.json"
+    const val NEWS_BASE_URL = "https://www.news.developeridn.com/search/"
+    const val NEWS_URL = "?q=covid"
+
 }

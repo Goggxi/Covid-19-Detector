@@ -12,6 +12,8 @@ class MainRepository(private val apiHelper: ApiHelper) {
 
     suspend fun getProvince() = apiHelper.getProvince()
 
+    suspend fun getNews() = apiHelper.getNews()
+
 //    suspend fun createUser(nama : String, email: String, password: String, image: String) = apiHelper.createUser(nama, email, password, image)
 //
 //    suspend fun loginGoogle(code : String) = apiHelper.loginGoogle(code)
