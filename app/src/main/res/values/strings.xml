@@ -1,3 +1,95 @@
 <resources>
     <string name="app_name">Covid 19 Detector</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="image">image</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="berita_covid_19">Berita Covid-19</string>
+    <string name="peta_sebaran_covid_19">Peta Sebaran Covid-19</string>
+    <string name="date_template">15-12-2020</string>
+    <string name="tanggal_pembaruan_terakhir">Tanggal Pembaruan Terakhir :</string>
+    <string name="selengkapnya">Selengkapnya</string>
+    <string name="update_kasus_covid_19">Update Kasus Covid-19</string>
+    <string name="berita">Berita :</string>
+    <string name="baca">Baca</string>
+    <string name="value">-</string>
+
+
+    <string-array name="dataTitle">
+        <item>PM Israel Isolasi Mandiri usai Kontak dengan Pasien Corona</item>
+        <item>VIDEO: Mengenal Jenis Vaksin Covid-19 di Indonesia</item>
+        <item>Operator Diminta Tambah Kecepatan Internet, Tak Perang Harga</item>
+        <item>Satgas soal Positivity Rate RI Kian Tinggi: Sangat Berbahaya</item>
+        <item>Luhut Minta Mal dan Restoran di Jabodetabek Tutup Pukul 19.00</item>
+        <item>Satgas Larang RS Buka Pre-Order Pendaftaran Vaksin Covid-19</item>
+        <item>Pengusaha Jengkel UMK Karawang Naik</item>
+    </string-array>
+
+    <string-array name="dataPhoto">
+        <item>https://akcdn.detik.net.id/visual/2020/01/02/00e099e2-cdd3-4ac2-abe5-4082bec5fa94_169.jpeg?w=270&amp;q=90</item>
+        <item>https://akcdn.detik.net.id/visual/2020/12/15/mengenal-jenis-vaksin-covid-19-di-indonesia_169.jpeg?w=270&amp;q=90</item>
+        <item>https://akcdn.detik.net.id/visual/2020/07/21/semangat-siswa-belajar-dengan-keterbatasan-internet-4_169.jpeg?w=270&amp;q=90</item>
+        <item>https://akcdn.detik.net.id/visual/2020/12/14/perkembangan-kasus-covid-19-di-indonesia_169.jpeg?w=270&amp;q=90</item>
+        <item>https://akcdn.detik.net.id/visual/2020/09/14/psbb-total-hari-pertama-10_169.jpeg?w=270&amp;q=90</item>
+        <item>https://akcdn.detik.net.id/visual/2020/08/11/wiku-adisasmito-1_169.jpeg?w=270&amp;q=90</item>
+        <item>https://akcdn.detik.net.id/visual/2017/06/26/d2893c75-3ef5-415b-9602-33773998f86d_169.jpg?w=270&amp;q=90</item>
+    </string-array>
+
+    <string-array name="dataType">
+        <item>Internasional</item>
+        <item>Nasional</item>
+        <item>Teknologi</item>
+        <item>Nasional</item>
+        <item>Nasional</item>
+        <item>Kesehatan</item>
+        <item>Ekonomi</item>
+    </string-array>
+
+    <string-array name="dataTime">
+        <item>7 menit yang lalu</item>
+        <item>10 menit yang lalu</item>
+        <item>19 menit yang lalu</item>
+        <item>1 jam yang lalu</item>
+        <item>7 jam yang lalu</item>
+        <item>3 hari yang lalu</item>
+        <item>5 hari yang lalu</item>
+    </string-array>
+
+    <string-array name="dataProvinsi">
+        <item>ACEH</item>
+        <item>BALI</item>
+        <item>BANTEN</item>
+        <item>BENGKULU</item>
+        <item>DKI JAKARTA</item>
+        <item>DAERAH ISTIMEWA YOGYAKARTA</item>
+        <item>GORONTALO</item>
+        <item>JAWA TIMUR</item>
+        <item>JAWA TENGAH</item>
+        <item>JAWA BARAT</item>
+        <item>JAMBI</item>
+        <item>KALIMANTAN TIMUR</item>
+        <item>KALIMANTAN TENGAH</item>
+        <item>KALIMANTAN BARAT</item>
+        <item>KALIMANTAN UTARA</item>
+        <item>KALIMANTAN SELATAN</item>
+        <item>KEPULAUAN RIAU</item>
+        <item>KEPULAUAN BANGKA BELITUNG</item>
+        <item>LAMPUNG</item>
+        <item>MALUKU</item>
+        <item>MALUKU UTARA</item>
+        <item>NUSA TENGGARA TIMUR</item>
+        <item>NUSA TENGGARA BARAT</item>
+        <item>PAPUA</item>
+        <item>PAPUA BARAT</item>
+        <item>RIAU</item>
+        <item>SULAWESI SELATAN</item>
+        <item>SUMATERA BARAT</item>
+        <item>SUMATERA UTARA</item>
+        <item>SUMATERA SELATAN</item>
+        <item>SULAWESI TENGAH</item>
+        <item>SULAWESI BARAT</item>
+        <item>SULAWESI UTARA</item>
+        <item>SULAWESI TENGGARA</item>
+    </string-array>
+
 </resources>

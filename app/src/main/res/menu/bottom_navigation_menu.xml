@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_dashboaard"
+        android:title="Dashboard" />
+    <item
+        android:id="@+id/informasiFragment"
+        android:icon="@drawable/ic_informasi"
+        android:title="Informasi" />
+
+    <item
+        android:id="@+id/klasifikasiFragmetn"
+        android:icon="@drawable/ic_klasifikasi"
+        android:title="Klasifikasi" />
+
+    <item
+        android:id="@+id/rujukanFragment"
+        android:icon="@drawable/ic_rujukan"
+        android:title="Rujukan" />
+
+</menu>
