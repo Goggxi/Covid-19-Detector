@@ -4,7 +4,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">#00B185</item>    // Toolbar
         <item name="colorPrimaryVariant">#00B185</item> //  top App Bar
-        <item name="colorOnPrimary">@color/purple_200</item>
+        <item name="colorOnPrimary">#00B185</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/purple_500</item>
         <item name="colorSecondaryVariant">@color/purple_700</item>

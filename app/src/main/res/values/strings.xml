@@ -12,6 +12,7 @@
     <string name="update_kasus_covid_19">Update Kasus Covid-19</string>
     <string name="berita">Berita :</string>
     <string name="baca">Baca</string>
+    <string name="value">-</string>
 
 
     <string-array name="dataTitle">
@@ -52,6 +53,43 @@
         <item>7 jam yang lalu</item>
         <item>3 hari yang lalu</item>
         <item>5 hari yang lalu</item>
+    </string-array>
+
+    <string-array name="dataProvinsi">
+        <item>ACEH</item>
+        <item>BALI</item>
+        <item>BANTEN</item>
+        <item>BENGKULU</item>
+        <item>DKI JAKARTA</item>
+        <item>DAERAH ISTIMEWA YOGYAKARTA</item>
+        <item>GORONTALO</item>
+        <item>JAWA TIMUR</item>
+        <item>JAWA TENGAH</item>
+        <item>JAWA BARAT</item>
+        <item>JAMBI</item>
+        <item>KALIMANTAN TIMUR</item>
+        <item>KALIMANTAN TENGAH</item>
+        <item>KALIMANTAN BARAT</item>
+        <item>KALIMANTAN UTARA</item>
+        <item>KALIMANTAN SELATAN</item>
+        <item>KEPULAUAN RIAU</item>
+        <item>KEPULAUAN BANGKA BELITUNG</item>
+        <item>LAMPUNG</item>
+        <item>MALUKU</item>
+        <item>MALUKU UTARA</item>
+        <item>NUSA TENGGARA TIMUR</item>
+        <item>NUSA TENGGARA BARAT</item>
+        <item>PAPUA</item>
+        <item>PAPUA BARAT</item>
+        <item>RIAU</item>
+        <item>SULAWESI SELATAN</item>
+        <item>SUMATERA BARAT</item>
+        <item>SUMATERA UTARA</item>
+        <item>SUMATERA SELATAN</item>
+        <item>SULAWESI TENGAH</item>
+        <item>SULAWESI BARAT</item>
+        <item>SULAWESI UTARA</item>
+        <item>SULAWESI TENGGARA</item>
     </string-array>
 
 </resources>
