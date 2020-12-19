@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment
@@ -58,9 +57,9 @@ class HomeFragment : Fragment() {
             transformations(RoundedCornersTransformation(0F, 0F, 80F, 80F))
         }
 
-        if(activity is AppCompatActivity){
-            (activity as AppCompatActivity).setSupportActionBar(binding.toolbar)
-        }
+//        if(activity is AppCompatActivity){
+//            (activity as AppCompatActivity).setSupportActionBar(binding.toolbar)
+//        }
 
         val location = resources.getStringArray(R.array.dataProvinsi)
         val locationAdapter = ArrayAdapter(
@@ -69,23 +68,16 @@ class HomeFragment : Fragment() {
             location
         )
         binding.locationDropdownMenu.setAdapter(locationAdapter)
-
-        // Nav host fragment
-        val host: NavHostFragment = activity?.supportFragmentManager
-            ?.findFragmentById(R.id.container) as NavHostFragment?
-            ?: return
-        // nav controller
-        val navController = host.navController
-
-        // Setup bottom navigation view
-        binding.bottomNavigationId.setupWithNavController(navController)
     }
 
     override fun onStart() {
         super.onStart()
-        binding.locationDropdownMenu.setText("SULAWESI SELATAN")
-        val locationDefault = "SULAWESI SELATAN"
-        getProvince(locationDefault)
+
+        if (binding.locationDropdownMenu.text.isEmpty()){
+            binding.locationDropdownMenu.setText("SULAWESI SELATAN")
+            val locationDefault = "SULAWESI SELATAN"
+            getProvince(locationDefault)
+        }
 
         binding.locationDropdownMenu.onItemClickListener = AdapterView.OnItemClickListener {
             parent, view, position, id ->
@@ -94,6 +86,19 @@ class HomeFragment : Fragment() {
         }
 
         getNews()
+        bottomNavigation()
+    }
+
+    private fun bottomNavigation() {
+        // Nav host fragment
+        val host: NavHostFragment = activity?.supportFragmentManager
+                ?.findFragmentById(R.id.container) as NavHostFragment?
+                ?: return
+        // nav controller
+        val navController = host.navController
+
+        // Setup bottom navigation view
+        binding.bottomNavigationId.setupWithNavController(navController)
     }
 
     private fun setupViewModel() {
@@ -167,7 +172,7 @@ class HomeFragment : Fragment() {
                                     Log.d( "getNews: ", resource.data.body().toString())
                                     showNews(resource.data.body()!!)
                                 } else {
-                                    Toast.makeText(context, "Gagal Load Data Provinsi", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(context, "Gagal Load Data Berita", Toast.LENGTH_SHORT).show()
                                 }
                             }
                             Status.ERROR -> {

@@ -75,6 +75,8 @@
         android:textColor="@color/white"
         android:fontFamily="@font/nunito_sans"
         android:typeface="normal"
+        app:cornerRadius="10dp"
+        app:rippleColor="@color/shape"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
