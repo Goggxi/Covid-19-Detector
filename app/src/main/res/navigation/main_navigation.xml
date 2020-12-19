@@ -23,4 +23,9 @@
         android:name="com.goggxi.covid19detector.ui.information.InformationFragment"
         android:label="fragment_informasi"
         tools:layout="@layout/fragment_information" />
+    <fragment
+        android:id="@+id/referralFragment"
+        android:name="com.goggxi.covid19detector.ui.referral.ReferralFragment"
+        android:label="fragment_referral"
+        tools:layout="@layout/fragment_referral" />
 </navigation>

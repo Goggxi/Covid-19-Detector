@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="94dp"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/bg_shape">
+
+    <ImageView
+        android:id="@+id/iconReferralLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/ic_lokasi_rujukan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/image" />
+
+    <TextView
+        style="@style/textStyle_10_semiBold"
+        android:id="@+id/textTitleReferral"
+        android:layout_width="224dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:layout_marginStart="18dp"
+        app:layout_constraintStart_toEndOf="@+id/iconReferralLocation"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textAddressReferral"
+        style="@style/textStyle_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="18dp"
+        android:text="@string/alamat"
+        android:textColor="@color/textColor3"
+        app:layout_constraintStart_toEndOf="@+id/iconReferralLocation"
+        app:layout_constraintTop_toBottomOf="@+id/textTitleReferral" />
+
+    <TextView
+        android:id="@+id/textAddressReferralContent"
+        style="@style/textStyle_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/textColor3"
+        app:layout_constraintStart_toEndOf="@+id/textAddressReferral"
+        app:layout_constraintTop_toBottomOf="@+id/textTitleReferral" />
+
+    <TextView
+        android:id="@+id/textRegionReferral"
+        style="@style/textStyle_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="18dp"
+        android:text="@string/wilayah"
+        android:textColor="@color/textColor3"
+        app:layout_constraintStart_toEndOf="@+id/iconReferralLocation"
+        app:layout_constraintTop_toBottomOf="@+id/textAddressReferral" />
+
+    <TextView
+        android:id="@+id/textRegionReferralContent"
+        style="@style/textStyle_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/textColor3"
+        app:layout_constraintStart_toEndOf="@+id/textAddressReferral"
+        app:layout_constraintTop_toBottomOf="@+id/textAddressReferral" />
+
+    <TextView
+        android:id="@+id/textTelephoneReferral"
+        style="@style/textStyle_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="18dp"
+        android:text="@string/telepon"
+        android:textColor="@color/textColor3"
+        app:layout_constraintStart_toEndOf="@+id/iconReferralLocation"
+        app:layout_constraintTop_toBottomOf="@+id/textRegionReferral" />
+
+    <TextView
+        android:id="@+id/textTelephoneReferralContent"
+        style="@style/textStyle_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/textColor3"
+        app:layout_constraintStart_toEndOf="@+id/textTelephoneReferral"
+        app:layout_constraintTop_toBottomOf="@+id/textRegionReferral" />
+
+    <TextView
+        android:id="@+id/textProvinceReferral"
+        style="@style/textStyle_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginStart="18dp"
+        android:text="@string/provinsi"
+        android:textColor="@color/textColor3"
+        app:layout_constraintStart_toEndOf="@+id/iconReferralLocation"
+        app:layout_constraintTop_toBottomOf="@+id/textTelephoneReferral" />
+
+    <TextView
+        android:id="@+id/textProvinceReferralContent"
+        style="@style/textStyle_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:textColor="@color/textColor3"
+        app:layout_constraintStart_toEndOf="@+id/textTelephoneReferral"
+        app:layout_constraintTop_toBottomOf="@+id/textTelephoneReferral" />
+
+
+    <Button
+        style="@style/ShapeAppearance.App.SmallComponent"
+        android:id="@+id/btnCall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="9dp"
+        android:text="@string/panggil"
+        android:textSize="8sp"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:fontFamily="@font/nunito_sans"
+        android:typeface="normal"
+        app:cornerRadius="10dp"
+        app:rippleColor="@color/shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

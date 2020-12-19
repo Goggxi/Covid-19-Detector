@@ -15,6 +15,14 @@
     <string name="value">-</string>
     <string name="informasi">Informasi</string>
     <string name="apa_itu_covid_19">Apa itu covid - 19</string>
+    <string name="covid_19_detector">Covid-19 Detector</string>
+    <string name="version_1_0">Version 1.0</string>
+    <string name="rumah_sakit_rujukan_covid_19">Rumah Sakit Rujukan covid - 19</string>
+    <string name="alamat">Alamat : </string>
+    <string name="wilayah">Wilayah : </string>
+    <string name="telepon">Telepon : </string>
+    <string name="provinsi">Provinsi : </string>
+    <string name="panggil">Panggil</string>
 
 
     <string-array name="dataTitle">

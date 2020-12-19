@@ -16,7 +16,7 @@
         android:title="Klasifikasi" />
 
     <item
-        android:id="@+id/rujukanFragment"
+        android:id="@+id/referralFragment"
         android:icon="@drawable/ic_rujukan"
         android:title="Rujukan" />
 
