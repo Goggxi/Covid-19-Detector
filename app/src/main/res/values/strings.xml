@@ -13,6 +13,8 @@
     <string name="berita">Berita :</string>
     <string name="baca">Baca</string>
     <string name="value">-</string>
+    <string name="informasi">Informasi</string>
+    <string name="apa_itu_covid_19">Apa itu covid - 19</string>
 
 
     <string-array name="dataTitle">

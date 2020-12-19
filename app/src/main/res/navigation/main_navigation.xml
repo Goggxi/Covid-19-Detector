@@ -20,7 +20,7 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/informasiFragment"
-        android:name="com.goggxi.covid19detector.ui.informasi.InformasiFragment"
+        android:name="com.goggxi.covid19detector.ui.information.InformationFragment"
         android:label="fragment_informasi"
-        tools:layout="@layout/fragment_informasi" />
+        tools:layout="@layout/fragment_information" />
 </navigation>
