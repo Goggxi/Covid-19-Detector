@@ -1,9 +1,11 @@
 package com.goggxi.covid19detector.data.api
 
+import com.goggxi.covid19detector.data.model.Referral
 import com.goggxi.covid19detector.data.remote.NewsResponse
 import com.goggxi.covid19detector.data.remote.ProvinceResponse
 import com.goggxi.covid19detector.utils.Constants.NEWS_URL
 import com.goggxi.covid19detector.utils.Constants.PROVINCE_URL
+import com.goggxi.covid19detector.utils.Constants.REFERRAL_URL
 import retrofit2.Response
 import retrofit2.http.GET
 
@@ -20,6 +22,10 @@ interface ApiService {
     @GET(NEWS_URL)
     suspend fun getNews(
     ): Response<NewsResponse>
+
+    @GET(REFERRAL_URL)
+    suspend fun getReferral(
+    ): Response<List<Referral>>
 
 //    @GET(PROVINSI_URL)
 //    suspend fun getProvinsi(

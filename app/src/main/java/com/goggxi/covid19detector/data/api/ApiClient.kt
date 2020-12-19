@@ -2,6 +2,7 @@ package com.goggxi.covid19detector.data.api
 
 import com.goggxi.covid19detector.utils.Constants.BASE_URL
 import com.goggxi.covid19detector.utils.Constants.NEWS_BASE_URL
+import com.goggxi.covid19detector.utils.Constants.REFERRAL_BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -46,6 +47,27 @@ class ApiClient {
         if (!::apiService.isInitialized) {
             val retrofit = Retrofit.Builder()
                     .baseUrl(NEWS_BASE_URL)
+                    .client(client)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+
+            apiService = retrofit.create(ApiService::class.java)
+        }
+
+        return apiService
+    }
+
+    fun getApiServiceReferral(): ApiService {
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
+
+        val client = OkHttpClient.Builder()
+                .addInterceptor(interceptor)
+                .build()
+
+        if (!::apiService.isInitialized) {
+            val retrofit = Retrofit.Builder()
+                    .baseUrl(REFERRAL_BASE_URL)
                     .client(client)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
