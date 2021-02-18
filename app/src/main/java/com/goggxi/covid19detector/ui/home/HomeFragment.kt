@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.NavHostFragment
@@ -28,7 +31,9 @@ import com.goggxi.covid19detector.ui.viewmodel.IndonesiaDetailViewModel
 import com.goggxi.covid19detector.ui.viewmodel.NewsViewModel
 import com.goggxi.covid19detector.ui.viewmodel.ProvinceViewModel
 import com.goggxi.covid19detector.ui.viewmodel.ViewModelFactory
+import com.goggxi.covid19detector.utils.Metric
 import com.goggxi.covid19detector.utils.Status
+import com.goggxi.covid19detector.utils.TimeScale
 import com.robinhood.ticker.TickerUtils
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
@@ -36,9 +41,11 @@ import java.util.*
 
 
 class HomeFragment : Fragment() {
+    private lateinit var sparkAdapter: CovidSparkAdapter
     private lateinit var binding: FragmentHomeBinding
     private lateinit var provinceViewModel: ProvinceViewModel
     private lateinit var indonesiaDetailViewModel: IndonesiaDetailViewModel
+    private lateinit var currentlyShownData: List<HarianItem>
     private lateinit var newsViewModel: NewsViewModel
 
     companion object {
@@ -192,6 +199,8 @@ class HomeFragment : Fragment() {
                                 binding.progressBar.visibility = View.GONE
                                 if (resource.data?.isSuccessful!!) {
 //                                    Log.e( "INDONESIA DETAIL", resource.data.body()?.update?.harian?.reversed().toString())
+
+                                    setupEventListeners()
                                     @Suppress("UNCHECKED_CAST")
                                     showDaily(resource.data.body()!!.update?.harian as List<HarianItem>)
 //                                    showTotal(resource.data.body()!!.update?.total!!)
@@ -212,9 +221,60 @@ class HomeFragment : Fragment() {
                 })
     }
 
-    private fun showDaily(daily : List<HarianItem>) {
+    private fun setupEventListeners() {
+        binding.include6.sparkViewGraph.isScrubEnabled = true
+        binding.include6.sparkViewGraph.setScrubListener { itemData ->
+            if (itemData is HarianItem) {
+                updateDisplayWhitData(itemData)
+            }
+        }
 
-        val sparkAdapter = CovidSparkAdapter(daily)
+        binding.include6.tickerView.setCharacterLists(TickerUtils.provideNumberList())
+
+        // Respond to radio button selected events
+        binding.include6.radioGroupTimeSelection.setOnCheckedChangeListener { _, checkedId ->
+            sparkAdapter.daysAgo = when (checkedId) {
+                R.id.radioButtonWeek -> TimeScale.WEEK
+                R.id.radioButtonMonth -> TimeScale.MONTH
+                else -> TimeScale.MAX
+            }
+            // Display the last day of the metric
+            updateDisplayWhitData(currentlyShownData.last())
+            sparkAdapter.notifyDataSetChanged()
+        }
+        binding.include6.radioGroupMetricSelection.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.radioButtonDirawat -> updateDisplayMetric(Metric.TAKECARE)
+                R.id.radioButtonSembuh -> updateDisplayMetric(Metric.NEGATIVE)
+                R.id.radioButtonAktif-> updateDisplayMetric(Metric.POSITIVE)
+                R.id.radioButtonMeninggal -> updateDisplayMetric(Metric.DEATH)
+            }
+        }
+    }
+
+    private fun updateDisplayMetric(metric: Metric) {
+        // Update color of the chart
+        @ColorRes val colorRes = when (metric) {
+            Metric.TAKECARE -> R.color.blue1
+            Metric.NEGATIVE -> R.color.green1
+            Metric.POSITIVE -> R.color.orange1
+            Metric.DEATH -> R.color.red1
+        }
+        @ColorInt val colorInt = ContextCompat.getColor(requireContext(), colorRes)
+        binding.include6.sparkViewGraph.lineColor = colorInt
+        binding.include6.tickerView.textColor = colorInt
+
+        // Update metric on the adapter
+        sparkAdapter.metric = metric
+        sparkAdapter.notifyDataSetChanged()
+
+        updateDisplayWhitData(currentlyShownData.last())
+    }
+
+    private fun showDaily(daily : List<HarianItem>) {
+        currentlyShownData = daily
+
+        sparkAdapter = CovidSparkAdapter(daily)
         binding.include6.sparkViewGraph.adapter = sparkAdapter
 
         binding.include6.radioButtonAktif.isChecked = true
@@ -224,14 +284,21 @@ class HomeFragment : Fragment() {
     }
 
     private fun updateDisplayWhitData(dayLast: HarianItem) {
-        val outputDateFormat = SimpleDateFormat("MMM dd, yyyy", Locale.US)
 
+        val numCases = when (sparkAdapter.metric) {
+            Metric.TAKECARE -> dayLast.jumlahDirawat?.value!!.toFloat()
+            Metric.NEGATIVE -> dayLast.jumlahSembuh?.value!!.toFloat()
+            Metric.POSITIVE -> dayLast.jumlahPositif?.value!!.toFloat()
+            Metric.DEATH -> dayLast.jumlahMeninggal?.value!!.toFloat()
+        }
+
+        val outputDateFormat = SimpleDateFormat("MMM dd, yyyy", Locale.US)
         Log.e("showDailyFormat ", outputDateFormat.format(dayLast.keyAsString))
         Log.e("showDailyPositif ", dayLast.jumlahPositif?.value.toString())
 
         binding.include6.tvDateLabel.text = outputDateFormat.format(dayLast.keyAsString)
         binding.include6.tickerView.setCharacterLists(TickerUtils.provideNumberList());
-        binding.include6.tickerView.text = NumberFormat.getInstance().format(dayLast.jumlahPositif?.value)
+        binding.include6.tickerView.text = NumberFormat.getInstance().format(numCases)
     }
 
 

@@ -16,4 +16,6 @@
     <color name="textColor2">#3D3D3D</color>
     <color name="textColor3">#686868</color>
     <color name="grey1">#9A9A9A</color>
+    <color name="colorBackgroundShade">#EBEEF6</color>
+    <color name="colorSelectedBackground">@color/teal_200</color>
 </resources>

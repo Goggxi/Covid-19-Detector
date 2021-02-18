@@ -115,4 +115,11 @@
         <item name="android:textSize">10sp</item>
     </style>
 
+    <style name="CustomRadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:background">@drawable/button_background</item>
+        <item name="android:button">@null</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/color_button_text</item>
+    </style>
+
 </resources>

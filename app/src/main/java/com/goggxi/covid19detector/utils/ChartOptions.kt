@@ -1,7 +1,7 @@
 package com.goggxi.covid19detector.utils
 
 enum class Metric {
-    CONFIRMED, NEGATIVE, POSITIVE, DEATH
+    TAKECARE, NEGATIVE, POSITIVE, DEATH
 }
 
 enum class TimeScale(val numDays: Int) {
