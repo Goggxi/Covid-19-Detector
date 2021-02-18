@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RadioGroup
+        android:id="@+id/radioGroupMetricSelection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioButtonTerkonfirmasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Terkonfirmasi" />
+
+        <RadioButton
+            android:id="@+id/radioButtonAktif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aktif" />
+
+        <RadioButton
+            android:id="@+id/radioButtonSembuh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sembuh" />
+
+        <RadioButton
+            android:id="@+id/radioButtonMeninggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Meninggal" />
+    </RadioGroup>
+
+    <com.robinhood.spark.SparkView
+        android:id="@+id/sparkViewGraph"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/shape"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupMetricSelection"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroupTimeSelection"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroupTimeSelection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/shape"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/tvDateLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioButton
+            android:id="@+id/radioButtonWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Minggu" />
+
+        <RadioButton
+            android:id="@+id/radioButtonMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bulan" />
+
+        <RadioButton
+            android:id="@+id/radioButtonMax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Semua" />
+    </RadioGroup>
+
+    <com.robinhood.ticker.TickerView
+        android:id="@+id/tickerView"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/orange1"
+        android:text="4,354"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvDateLabel" />
+
+    <TextView
+        android:id="@+id/tvDateLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_marginStart="10dp"
+        android:gravity="center"
+        android:textColor="@color/orange1"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="May 31, 2020" />
+
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/textView5"-->
+<!--        style="@style/textStyle_16_bold"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        tools:text="scdssfdaf"-->
+<!--        android:layout_marginBottom="16dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

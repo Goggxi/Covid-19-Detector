@@ -8,6 +8,8 @@ class ApiHelper (private val apiService: ApiService) {
 
     suspend fun getProvince() = apiService.getProvince()
 
+    suspend fun getIndonesiaDetail() = apiService.getIndonesiaDetail()
+
     suspend fun getNews() = apiService.getNews()
 
     suspend fun getReferral() = apiService.getReferral()

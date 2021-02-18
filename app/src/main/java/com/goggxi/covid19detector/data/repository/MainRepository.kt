@@ -12,6 +12,8 @@ class MainRepository(private val apiHelper: ApiHelper) {
 
     suspend fun getProvince() = apiHelper.getProvince()
 
+    suspend fun getIndonesiaDetail() = apiHelper.getIndonesiaDetail()
+
     suspend fun getNews() = apiHelper.getNews()
 
     suspend fun getReferral() = apiHelper.getReferral()

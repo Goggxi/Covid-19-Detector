@@ -1,8 +1,10 @@
 package com.goggxi.covid19detector.data.api
 
 import com.goggxi.covid19detector.data.model.Referral
+import com.goggxi.covid19detector.data.remote.GrapResponse
 import com.goggxi.covid19detector.data.remote.NewsResponse
 import com.goggxi.covid19detector.data.remote.ProvinceResponse
+import com.goggxi.covid19detector.utils.Constants.INDONESIA_DETAIL_URL
 import com.goggxi.covid19detector.utils.Constants.NEWS_URL
 import com.goggxi.covid19detector.utils.Constants.PROVINCE_URL
 import com.goggxi.covid19detector.utils.Constants.REFERRAL_URL
@@ -18,6 +20,10 @@ interface ApiService {
     @GET(PROVINCE_URL)
     suspend fun getProvince(
     ): Response<ProvinceResponse>
+
+    @GET(INDONESIA_DETAIL_URL)
+    suspend fun getIndonesiaDetail(
+    ): Response<GrapResponse>
 
     @GET(NEWS_URL)
     suspend fun getNews(

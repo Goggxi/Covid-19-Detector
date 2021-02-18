@@ -19,19 +19,31 @@ import com.goggxi.covid19detector.R
 import com.goggxi.covid19detector.data.api.ApiClient
 import com.goggxi.covid19detector.data.api.ApiHelper
 import com.goggxi.covid19detector.data.model.Province
+import com.goggxi.covid19detector.data.remote.HarianItem
 import com.goggxi.covid19detector.data.remote.NewsResponse
 import com.goggxi.covid19detector.databinding.FragmentHomeBinding
+import com.goggxi.covid19detector.ui.adapter.CovidSparkAdapter
 import com.goggxi.covid19detector.ui.adapter.NewsAdapter
+import com.goggxi.covid19detector.ui.viewmodel.IndonesiaDetailViewModel
 import com.goggxi.covid19detector.ui.viewmodel.NewsViewModel
 import com.goggxi.covid19detector.ui.viewmodel.ProvinceViewModel
 import com.goggxi.covid19detector.ui.viewmodel.ViewModelFactory
 import com.goggxi.covid19detector.utils.Status
+import com.robinhood.ticker.TickerUtils
+import java.text.NumberFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var provinceViewModel: ProvinceViewModel
+    private lateinit var indonesiaDetailViewModel: IndonesiaDetailViewModel
     private lateinit var newsViewModel: NewsViewModel
+
+    companion object {
+        const val TAG = "HomeFragment"
+    }
 
 
     override fun onCreateView(
@@ -45,6 +57,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViewModel()
+
+
+
 
         binding = FragmentHomeBinding.inflate(layoutInflater)
         activity?.setContentView(binding.root)
@@ -80,11 +95,12 @@ class HomeFragment : Fragment() {
         }
 
         binding.locationDropdownMenu.onItemClickListener = AdapterView.OnItemClickListener {
-            parent, view, position, id ->
+            parent, _ , position, id ->
             val selectedItem = parent.getItemAtPosition(position).toString()
             getProvince(selectedItem)
         }
 
+        getIndonesiaDetail()
         getNews()
         bottomNavigation()
     }
@@ -107,6 +123,11 @@ class HomeFragment : Fragment() {
                 ViewModelFactory(ApiHelper(ApiClient().getApiService()))
         ).get(ProvinceViewModel::class.java)
 
+        indonesiaDetailViewModel = ViewModelProviders.of(
+                this,
+                ViewModelFactory(ApiHelper(ApiClient().getApiService()))
+        ).get(IndonesiaDetailViewModel::class.java)
+
         newsViewModel = ViewModelProviders.of(
                 this,
                 ViewModelFactory(ApiHelper(ApiClient().getApiServiceNews()))
@@ -122,8 +143,9 @@ class HomeFragment : Fragment() {
                             Status.SUCCESS -> {
                                 binding.progressBar.visibility = View.GONE
                                 if (resource.data?.isSuccessful!!) {
-                                    Log.d("getDate: ", resource.data.body()?.last_date.toString())
-                                    Log.d("getProvinsi: ", resource.data.body()?.list_data.toString())
+//                                    Log.d("getDate: ", resource.data.body()?.last_date.toString())
+//                                    Log.d("getProvinsi: ", resource.data.body()?.list_data.toString())
+                                    @Suppress("UNCHECKED_CAST")
                                     showProvince(resource.data.body()?.list_data!! as List<Province>, key)
                                     binding.textDateContent.text = resource.data.body()?.last_date
                                 } else {
@@ -159,6 +181,59 @@ class HomeFragment : Fragment() {
             }
         }
     }
+
+    private fun getIndonesiaDetail() {
+        indonesiaDetailViewModel.getIndonesiaDetail().observe(
+                viewLifecycleOwner,
+                {
+                    it?.let { resource ->
+                        when (resource.status) {
+                            Status.SUCCESS -> {
+                                binding.progressBar.visibility = View.GONE
+                                if (resource.data?.isSuccessful!!) {
+//                                    Log.e( "INDONESIA DETAIL", resource.data.body()?.update?.harian?.reversed().toString())
+                                    @Suppress("UNCHECKED_CAST")
+                                    showDaily(resource.data.body()!!.update?.harian as List<HarianItem>)
+//                                    showTotal(resource.data.body()!!.update?.total!!)
+                                } else {
+                                    Toast.makeText(context, "Gagal Load Data grafik", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                            Status.ERROR -> {
+                                binding.progressBar.visibility = View.GONE
+                                Toast.makeText(context, "Error Memuat Data", Toast.LENGTH_SHORT).show()
+                                Log.e("error", it.message.toString())
+                            }
+                            Status.LOADING -> {
+                                binding.progressBar.visibility = View.VISIBLE
+                            }
+                        }
+                    }
+                })
+    }
+
+    private fun showDaily(daily : List<HarianItem>) {
+
+        val sparkAdapter = CovidSparkAdapter(daily)
+        binding.include6.sparkViewGraph.adapter = sparkAdapter
+
+        binding.include6.radioButtonAktif.isChecked = true
+        binding.include6.radioButtonMax.isChecked = true
+        val dayLast = daily.last()
+        updateDisplayWhitData(dayLast)
+    }
+
+    private fun updateDisplayWhitData(dayLast: HarianItem) {
+        val outputDateFormat = SimpleDateFormat("MMM dd, yyyy", Locale.US)
+
+        Log.e("showDailyFormat ", outputDateFormat.format(dayLast.keyAsString))
+        Log.e("showDailyPositif ", dayLast.jumlahPositif?.value.toString())
+
+        binding.include6.tvDateLabel.text = outputDateFormat.format(dayLast.keyAsString)
+        binding.include6.tickerView.setCharacterLists(TickerUtils.provideNumberList());
+        binding.include6.tickerView.text = NumberFormat.getInstance().format(dayLast.jumlahPositif?.value)
+    }
+
 
     private fun getNews() {
         newsViewModel.getNews().observe(

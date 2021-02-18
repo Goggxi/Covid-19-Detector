@@ -20,6 +20,8 @@ class ViewModelFactory(private val apiHelper: ApiHelper) : ViewModelProvider.Fac
             return NewsViewModel(MainRepository(apiHelper)) as T
         } else if (modelClass.isAssignableFrom(ReferralViewModel::class.java)) {
             return ReferralViewModel(MainRepository(apiHelper)) as T
+        } else if (modelClass.isAssignableFrom(IndonesiaDetailViewModel::class.java)) {
+            return IndonesiaDetailViewModel(MainRepository(apiHelper)) as T
         }
         throw IllegalArgumentException("Unknown class name")
     }

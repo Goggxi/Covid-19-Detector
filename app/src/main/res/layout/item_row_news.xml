@@ -18,7 +18,7 @@
         android:contentDescription="@string/image" />
 
     <TextView
-        style="@style/textStyle_10_semiBold"
+        style="@style/textStyle_12_semiBold"
         android:id="@+id/textTitleNews"
         android:layout_width="224dp"
         android:layout_height="wrap_content"
@@ -29,18 +29,18 @@
 
     <TextView
         android:id="@+id/textTypeNewsContent"
-        style="@style/textStyle_8"
+        style="@style/textStyle_10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
+        android:layout_marginBottom="4dp"
         android:layout_marginStart="11dp"
         android:text="@string/berita"
-        app:layout_constraintStart_toEndOf="@+id/imgRowNews"
-        app:layout_constraintTop_toBottomOf="@+id/textTitleNews" />
+        app:layout_constraintBottom_toTopOf="@+id/textTimeNews"
+        app:layout_constraintStart_toEndOf="@+id/imgRowNews" />
 
     <TextView
         android:id="@+id/textAddressReferralContent"
-        style="@style/textStyle_8"
+        style="@style/textStyle_10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="27dp"
@@ -49,14 +49,15 @@
 
     <TextView
         android:id="@+id/textTimeNews"
-        style="@style/textStyle_8"
+        style="@style/textStyle_10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:layout_marginStart="11dp"
-        android:textStyle="italic"
         android:textColor="@color/textColor2"
-        app:layout_constraintStart_toEndOf="@+id/imgRowNews"
-        app:layout_constraintTop_toBottomOf="@+id/textAddressReferralContent" />
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgRowNews" />
 
     <Button
         style="@style/ShapeAppearance.App.SmallComponent"
@@ -66,7 +67,7 @@
         android:layout_marginEnd="9dp"
         android:layout_marginBottom="9dp"
         android:text="@string/baca"
-        android:textSize="8sp"
+        android:textSize="10sp"
         android:minHeight="0dp"
         android:minWidth="0dp"
         android:insetTop="0dp"

@@ -3,6 +3,7 @@ package com.goggxi.covid19detector.data.api
 import com.goggxi.covid19detector.utils.Constants.BASE_URL
 import com.goggxi.covid19detector.utils.Constants.NEWS_BASE_URL
 import com.goggxi.covid19detector.utils.Constants.REFERRAL_BASE_URL
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -23,11 +24,12 @@ class ApiClient {
                 .addInterceptor(interceptor)
                 .build()
 
+        val gson = GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create()
         if (!::apiService.isInitialized) {
             val retrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .client(client)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
 
             apiService = retrofit.create(ApiService::class.java)
