@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import coil.load
 import coil.transform.RoundedCornersTransformation
@@ -46,6 +47,7 @@ class InformationFragment : Fragment() {
 
         binding.btnMengenal.setOnClickListener {
             Toast.makeText(context, "Mengenal", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_informasiFragment_to_knowCovidFragment)
         }
         binding.btnMencegah.setOnClickListener {
             Toast.makeText(context, "Mencegah", Toast.LENGTH_SHORT).show()

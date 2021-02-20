@@ -1,7 +1,9 @@
 package com.goggxi.covid19detector.ui.news
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Html
+import android.text.Layout.JUSTIFICATION_MODE_INTER_WORD
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
@@ -14,6 +16,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
 import coil.load
 import coil.transform.RoundedCornersTransformation
+import com.codesgood.views.JustifiedTextView
 import com.goggxi.covid19detector.R
 import com.goggxi.covid19detector.data.api.ApiClient
 import com.goggxi.covid19detector.data.api.ApiHelper
@@ -95,11 +98,15 @@ class NewsDetailActivity : AppCompatActivity() {
                 })
     }
 
+    @SuppressLint("WrongConstant")
     private fun showNewsDetail(newsDetail: List<DataItem>){
         val txtBlank: TextView = findViewById(R.id.txtBlank)
         val txtTitle: TextView = findViewById(R.id.txtTitleNewsDetail)
         val txtDate: TextView = findViewById(R.id.txtDateNewsDetail)
-        val txtBody: TextView = findViewById(R.id.txtBodyNewsDetail)
+        val txtBody: JustifiedTextView = findViewById(R.id.txtBodyNewsDetail)
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            txtBody.justificationMode = JUSTIFICATION_MODE_INTER_WORD
+        }
         val imgNewsDetail: ImageView = findViewById(R.id.imgNewsDetail)
 
         for (detail in newsDetail){

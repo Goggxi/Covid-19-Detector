@@ -22,20 +22,33 @@
         android:id="@+id/informasiFragment"
         android:name="com.goggxi.covid19detector.ui.information.InformationFragment"
         android:label="fragment_informasi"
-        tools:layout="@layout/fragment_information" />
+        tools:layout="@layout/fragment_information" >
+        <action
+            android:id="@+id/action_informasiFragment_to_knowCovidFragment"
+            app:destination="@id/knowCovidFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
     <fragment
         android:id="@+id/referralFragment"
         android:name="com.goggxi.covid19detector.ui.referral.ReferralFragment"
         android:label="fragment_referral"
         tools:layout="@layout/fragment_referral" />
-    <fragment
-        android:id="@+id/newsDetailFragment"
-        android:name="com.goggxi.covid19detector.ui.news.NewsDetailFragment"
-        android:label="fragment_news_detail"
-        tools:layout="@layout/fragment_news_detail" />
     <activity
         android:id="@+id/newsDetailActivity"
         android:name="com.goggxi.covid19detector.ui.news.NewsDetailActivity"
         android:label="activity_news_detail"
         tools:layout="@layout/activity_news_detail" />
+    <fragment
+        android:id="@+id/knowCovidFragment"
+        android:name="com.goggxi.covid19detector.ui.information.KnowCovidFragment"
+        android:label="fragment_know_covid"
+        tools:layout="@layout/fragment_know_covid" >
+        <action
+            android:id="@+id/action_knowCovidFragment_to_informasiFragment"
+            app:destination="@id/informasiFragment"
+            app:enterAnim="@android:anim/fade_out"
+            app:popUpTo="@id/informasiFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

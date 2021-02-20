@@ -14,6 +14,7 @@
         <!-- Customize your theme here. -->
         <item name="colorButtonNormal">@color/shape</item>
         <item name="android:homeAsUpIndicator">@drawable/ic_back</item>
+        <item name="fontFamily">@font/nunito_sans</item>
     </style>
 
     <style name="Theme.Covid19Detector2" parent="Theme.MaterialComponents.DayNight">
