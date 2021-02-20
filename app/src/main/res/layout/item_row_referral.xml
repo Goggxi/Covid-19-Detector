@@ -19,18 +19,18 @@
         android:contentDescription="@string/image" />
 
     <TextView
-        style="@style/textStyle_10_semiBold"
+        style="@style/textStyle_12_semiBold"
         android:id="@+id/textTitleReferral"
         android:layout_width="224dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="6dp"
         android:layout_marginStart="18dp"
         app:layout_constraintStart_toEndOf="@+id/iconReferralLocation"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textAddressReferral"
-        style="@style/textStyle_8"
+        style="@style/textStyle_10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -42,7 +42,7 @@
 
     <TextView
         android:id="@+id/textAddressReferralContent"
-        style="@style/textStyle_8"
+        style="@style/textStyle_10"
         android:layout_width="224dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -53,7 +53,7 @@
 
     <TextView
         android:id="@+id/textRegionReferral"
-        style="@style/textStyle_8"
+        style="@style/textStyle_10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -65,7 +65,7 @@
 
     <TextView
         android:id="@+id/textRegionReferralContent"
-        style="@style/textStyle_8"
+        style="@style/textStyle_10"
         android:layout_width="224dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -76,7 +76,7 @@
 
     <TextView
         android:id="@+id/textTelephoneReferral"
-        style="@style/textStyle_8"
+        style="@style/textStyle_10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -88,7 +88,7 @@
 
     <TextView
         android:id="@+id/textTelephoneReferralContent"
-        style="@style/textStyle_8"
+        style="@style/textStyle_10"
         android:layout_width="224dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -99,7 +99,7 @@
 
     <TextView
         android:id="@+id/textProvinceReferral"
-        style="@style/textStyle_8"
+        style="@style/textStyle_10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -111,7 +111,7 @@
 
     <TextView
         android:id="@+id/textProvinceReferralContent"
-        style="@style/textStyle_8"
+        style="@style/textStyle_10"
         android:layout_width="224dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
@@ -129,7 +129,7 @@
         android:layout_marginEnd="9dp"
         android:layout_marginBottom="9dp"
         android:text="@string/panggil"
-        android:textSize="8sp"
+        android:textSize="10sp"
         android:minHeight="0dp"
         android:minWidth="0dp"
         android:insetTop="0dp"

@@ -223,7 +223,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
                 android:layout_marginStart="10dp"
-                android:text="Grafik Harian Kasus Covid-19 di Indonesia"
+                android:text="Grafik Harian Kasus Covid-19 Nasional"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textDateJudul" />
 

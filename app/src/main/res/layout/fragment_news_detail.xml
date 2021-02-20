@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.news.NewsDetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/textStyle_22_bold"
+            android:id="@+id/txtTitleNewsDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            tools:text="Punya Surat Bebas Covid, 1.214 Orang Tiba di RI Malah Positif"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtDateNewsDetail"
+            style="@style/textStyle_12_semiBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            tools:text="CNN Indonesia | Sabtu, 20/02/2021 12:06 WIB"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitleNewsDetail" />
+
+        <ImageView
+            android:id="@+id/imgNewsDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDateNewsDetail"
+            android:contentDescription="@string/image" />
+
+        <TextView
+            android:id="@+id/txtBodyNewsDetail"
+            style="@style/textStyle_12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgNewsDetail"
+            tools:text="Jakarta, CNN Indonesia -- Ketua Satgas Covid-19, Letnan Jenderal TNI Doni Monardo, mengatakan sebanyak 1.214 warga asing dan warga Indonesia yang tiba dari luar negeri terkonfirmasi positif virus corona (Covid-19).\nBerdasarkan data Satgas Covid-19 per 28 Desember 2020 hingga 18 Februari 2021, Doni mengatakan sebanyak 1.092 WNI dan 122 WNA terkonfirmasi positif corona saat tiba di Indonesia.\nPadahal, ribuan WNA dan WNI tersebut telah memegang surat keterangan bebas corona sebelum tiba di Indonesia."/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

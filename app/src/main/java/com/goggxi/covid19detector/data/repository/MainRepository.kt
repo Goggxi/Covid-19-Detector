@@ -16,6 +16,8 @@ class MainRepository(private val apiHelper: ApiHelper) {
 
     suspend fun getNews() = apiHelper.getNews()
 
+    suspend fun getNewsDetail(url: String) = apiHelper.getNewsDetail(url)
+
     suspend fun getReferral() = apiHelper.getReferral()
 
 //    suspend fun createUser(nama : String, email: String, password: String, image: String) = apiHelper.createUser(nama, email, password, image)

@@ -20,17 +20,17 @@
 
         <RadioButton
             style="@style/CustomRadioButton"
-            android:id="@+id/radioButtonDirawat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dirawat" />
-
-        <RadioButton
-            style="@style/CustomRadioButton"
             android:id="@+id/radioButtonAktif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Aktif" />
+
+        <RadioButton
+            style="@style/CustomRadioButton"
+            android:id="@+id/radioButtonDirawat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dirawat" />
 
         <RadioButton
             style="@style/CustomRadioButton"
@@ -99,7 +99,7 @@
         android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@color/orange1"
-        android:text="4,354"
+        tools:text="4,354"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvDateLabel" />
@@ -110,12 +110,12 @@
         android:layout_height="80dp"
         android:layout_marginStart="10dp"
         android:gravity="center"
-        android:textColor="@color/black"
+        android:textColor="@color/textColor1"
         style="@style/textStyle_16_bold"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="May 31, 2020" />
+        tools:text="May 31, 2020" />
 
 
 

@@ -28,4 +28,14 @@
         android:name="com.goggxi.covid19detector.ui.referral.ReferralFragment"
         android:label="fragment_referral"
         tools:layout="@layout/fragment_referral" />
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="com.goggxi.covid19detector.ui.news.NewsDetailFragment"
+        android:label="fragment_news_detail"
+        tools:layout="@layout/fragment_news_detail" />
+    <activity
+        android:id="@+id/newsDetailActivity"
+        android:name="com.goggxi.covid19detector.ui.news.NewsDetailActivity"
+        android:label="activity_news_detail"
+        tools:layout="@layout/activity_news_detail" />
 </navigation>

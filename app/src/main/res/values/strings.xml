@@ -4,7 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="image">image</string>
     <string name="dashboard">Dashboard</string>
-    <string name="berita_covid_19">Berita Covid-19</string>
+    <string name="berita_covid_19">Berita Covid-19 Nasional</string>
     <string name="peta_sebaran_covid_19">Peta Sebaran Covid-19</string>
     <string name="date_template">15-12-2020</string>
     <string name="tanggal_pembaruan_terakhir">Tanggal Pembaruan Terakhir :</string>
@@ -22,6 +22,7 @@
     <string name="telepon">Telepon : </string>
     <string name="provinsi">Provinsi : </string>
     <string name="panggil">Panggil</string>
+    <string name="detailberita">Detail Berita</string>
 
 
     <string-array name="dataTitle">

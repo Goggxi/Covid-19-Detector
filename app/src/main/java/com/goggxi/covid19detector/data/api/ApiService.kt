@@ -2,14 +2,19 @@ package com.goggxi.covid19detector.data.api
 
 import com.goggxi.covid19detector.data.model.Referral
 import com.goggxi.covid19detector.data.remote.GrapResponse
+import com.goggxi.covid19detector.data.remote.NewsDetailResponse
 import com.goggxi.covid19detector.data.remote.NewsResponse
 import com.goggxi.covid19detector.data.remote.ProvinceResponse
 import com.goggxi.covid19detector.utils.Constants.INDONESIA_DETAIL_URL
+import com.goggxi.covid19detector.utils.Constants.NEWS_DETAIL_URL
 import com.goggxi.covid19detector.utils.Constants.NEWS_URL
 import com.goggxi.covid19detector.utils.Constants.PROVINCE_URL
 import com.goggxi.covid19detector.utils.Constants.REFERRAL_URL
 import retrofit2.Response
+import retrofit2.http.Field
 import retrofit2.http.GET
+import retrofit2.http.Path
+import retrofit2.http.Query
 
 /**
  * Created By Goggxi on 16/12/2020.
@@ -28,6 +33,11 @@ interface ApiService {
     @GET(NEWS_URL)
     suspend fun getNews(
     ): Response<NewsResponse>
+
+    @GET("/detail/")
+    suspend fun getNewsDetail(
+        @Query("url") link: String
+    ): Response<NewsDetailResponse>
 
     @GET(REFERRAL_URL)
     suspend fun getReferral(

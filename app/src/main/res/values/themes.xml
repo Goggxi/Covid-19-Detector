@@ -13,6 +13,22 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="colorButtonNormal">@color/shape</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_back</item>
+    </style>
+
+    <style name="Theme.Covid19Detector2" parent="Theme.MaterialComponents.DayNight">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#00B185</item>    // Toolbar
+        <item name="colorPrimaryVariant">#00B185</item> //  top App Bar
+        <item name="colorOnPrimary">@color/purple_200</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/purple_500</item>
+        <item name="colorSecondaryVariant">@color/purple_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="colorButtonNormal">@color/shape</item>
     </style>
 
 
@@ -79,6 +95,12 @@
         <item name="fontStyle">normal</item>
     </style>
 
+    <style name="textStyle_22_bold">
+        <item name="fontFamily">@font/nunito_sans_bold</item>
+        <item name="android:textSize">22sp</item>
+        <item name="fontStyle">normal</item>
+    </style>
+
     <style name="collapsed_toolbar_title" parent="Theme.Covid19Detector">
         <item name="fontFamily">@font/nunito_sans_bold</item>
         <item name="android:textSize">18sp</item>
@@ -107,12 +129,12 @@
 
     <!-- inactive tab icon style -->
     <style name="TextAppearance.BottomNavigationView.Inactive">
-        <item name="android:textSize">8sp</item>
+        <item name="android:textSize">10sp</item>
     </style>
 
     <!-- active tab icon style -->
     <style name="TextAppearance.BottomNavigationView.Active">
-        <item name="android:textSize">10sp</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
     <style name="CustomRadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">

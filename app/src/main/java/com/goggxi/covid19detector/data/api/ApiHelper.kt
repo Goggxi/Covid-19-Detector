@@ -12,6 +12,8 @@ class ApiHelper (private val apiService: ApiService) {
 
     suspend fun getNews() = apiService.getNews()
 
+    suspend fun getNewsDetail(url : String) = apiService.getNewsDetail(url)
+
     suspend fun getReferral() = apiService.getReferral()
 
 //    suspend fun createUser(nama : String, email: String, password: String, image: String) = apiService.createUser(nama, email, password, image)

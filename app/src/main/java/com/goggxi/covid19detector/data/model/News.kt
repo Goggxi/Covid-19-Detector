@@ -4,5 +4,6 @@ data class News(
         var judul: String,
         var tipe: String,
         var waktu: String,
+        var link: String,
         var poster: String
 )

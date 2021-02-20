@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/covid_logo"
@@ -15,6 +14,7 @@
         android:roundIcon="@drawable/covid_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Covid19Detector">
+        <activity android:name=".ui.news.NewsDetailActivity"/>
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,9 +23,5 @@
             </intent-filter>
         </activity>
     </application>
-
-<!--    <meta-data android:name="com.here.android.maps.appid" android:value="q04r98bVo1RzJksLOJmn"/>-->
-<!--    <meta-data android:name="com.here.android.maps.apptoken" android:value="n62l2HR3vFTs4lxdBF5fqQ"/>-->
-<!--    <meta-data android:name="com.here.android.maps.license.key" android:value="L+rI8jUvck+3zd+/NnwxZ2CgTC1T4JTnzooBVEFtDGaUhBuPJEAICZlN3lOTj1FvyZSIuFReBjM12+JsO1MVWi9BeCNNkvSLCYMAl32UnZNoW9ZGvrDrGno3xpD7vCI+HLfF0wXBoqyBWUqUBTaaAmQQmAZTIU3gn7Dn66qJ8gK6TUgjzzrkM2A/fW2MZTSfC3ZL6xZRcJIqCzrXsFDIjh3gv4pruvJM5m07VIGu1j/iE9AImkx/tFMXLNI8dtDp2M9ZR/sYPF+sRfqobN1Y2L1iz8+ePxcI/HcZiUFpmhDKlPiBJ4PoRq/KNmHAgbVKWz+onNWFyM/LJCcFJ5LOJFblj3vCVDuNc86dmrx6T5ZkTzX/xXuecr6jgqf7cY7qWHBFqJ3lOdL9KhFJqvs0g6tANZuOjYak3kxl6G8J73Df0K8RSutdfA2TO2hg0KtDUsE4LGN+2+iMVOgwU9lyxJUq6vdmFzynN/LinvQ8cvAPNHf3kjLuucHkYaqDd5+qjvlVs62WETbBapnbanjyqEIh7FiUC9X3eua9DmDH8f4XyEs9srMP9IRT0uwsycLJKYG+K0PjHxfaaI5F8hnlbGPl2nD1EdjKm4J7CbdRCOBtZ5/fcdJTcwbNxcg3WFNOvyHASDWXi40WQctZbnZ2CEaZrsFtdpM6mY/QFhiqOPw="/>-->
 
 </manifest>
