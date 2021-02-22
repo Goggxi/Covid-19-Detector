@@ -51,4 +51,9 @@
             app:popUpTo="@id/informasiFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/classificationFragment"
+        android:name="com.goggxi.covid19detector.ui.classification.ClassificationFragment"
+        android:label="fragment_classification"
+        tools:layout="@layout/fragment_classification" />
 </navigation>

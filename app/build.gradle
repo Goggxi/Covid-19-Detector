@@ -93,6 +93,9 @@ dependencies {
     implementation 'com.github.bluejamesbond:textjustify-android:2.1.6'
     implementation 'com.codesgood:justifiedtextview:1.1.0'
 
+    //Chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
 //    // Here Maps
 //    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 //    implementation(name:'HERE-sdk', ext:'aar')

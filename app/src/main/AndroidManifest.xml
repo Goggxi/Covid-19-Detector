@@ -14,7 +14,8 @@
         android:roundIcon="@drawable/covid_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Covid19Detector">
-        <activity android:name=".ui.news.NewsDetailActivity"/>
+        <activity android:name=".ui.detailcovidprovince.DetailCovidActivity"/>
+        <activity android:name=".ui.news.NewsDetailActivity" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

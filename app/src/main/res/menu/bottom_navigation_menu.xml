@@ -11,7 +11,7 @@
         android:title="Informasi" />
 
     <item
-        android:id="@+id/klasifikasiFragmetn"
+        android:id="@+id/classificationFragment"
         android:icon="@drawable/ic_klasifikasi"
         android:title="Klasifikasi" />
 

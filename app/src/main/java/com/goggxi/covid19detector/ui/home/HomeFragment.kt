@@ -1,5 +1,6 @@
 package com.goggxi.covid19detector.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -21,12 +22,14 @@ import coil.transform.RoundedCornersTransformation
 import com.goggxi.covid19detector.R
 import com.goggxi.covid19detector.data.api.ApiClient
 import com.goggxi.covid19detector.data.api.ApiHelper
+import com.goggxi.covid19detector.data.model.KelompokUmurItem
 import com.goggxi.covid19detector.data.model.Province
 import com.goggxi.covid19detector.data.remote.HarianItem
 import com.goggxi.covid19detector.data.remote.NewsResponse
 import com.goggxi.covid19detector.databinding.FragmentHomeBinding
 import com.goggxi.covid19detector.ui.adapter.CovidSparkAdapter
 import com.goggxi.covid19detector.ui.adapter.NewsAdapter
+import com.goggxi.covid19detector.ui.detailcovidprovince.DetailCovidActivity
 import com.goggxi.covid19detector.ui.viewmodel.IndonesiaDetailViewModel
 import com.goggxi.covid19detector.ui.viewmodel.NewsViewModel
 import com.goggxi.covid19detector.ui.viewmodel.ProvinceViewModel
@@ -48,10 +51,38 @@ class HomeFragment : Fragment() {
     private lateinit var currentlyShownData: List<HarianItem>
     private lateinit var newsViewModel: NewsViewModel
 
+    private lateinit var usia1 : String
+    private lateinit var jumlahUsia1 : String
+    private lateinit var usia2 : String
+    private lateinit var jumlahUsia2 : String
+    private lateinit var usia3 : String
+    private lateinit var jumlahUsia3 : String
+    private lateinit var usia4 : String
+    private lateinit var jumlahUsia4 : String
+    private lateinit var usia5 : String
+    private lateinit var jumlahUsia5 : String
+    private lateinit var usia6 : String
+    private lateinit var jumlahUsia6 : String
+
+    private lateinit var pria : String
+    private lateinit var jumlahPria : String
+    private lateinit var wanita : String
+    private lateinit var jumlahWanita : String
+
+    private lateinit var provinsi : String
+    private lateinit var tanggal : String
+    private lateinit var penambahanPositif : String
+    private lateinit var penambahanMeninggal : String
+    private lateinit var penambahanSembuh : String
+    private lateinit var positif : String
+    private lateinit var sembuh : String
+    private lateinit var meninggal : String
+    private lateinit var terkonfirmasi : String
+
+
     companion object {
         const val TAG = "HomeFragment"
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -110,6 +141,43 @@ class HomeFragment : Fragment() {
         getIndonesiaDetail()
         getNews()
         bottomNavigation()
+        buttonSelengkapnya()
+    }
+
+    private fun buttonSelengkapnya(){
+        binding.btnSelengkapnya.setOnClickListener {
+            val intent = Intent(requireContext() , DetailCovidActivity::class.java)
+            intent.putExtra(DetailCovidActivity.EXTRA_USIA1, usia1)
+            intent.putExtra(DetailCovidActivity.EXTRA_JUMLAH_USIA1, jumlahUsia1)
+            intent.putExtra(DetailCovidActivity.EXTRA_USIA2, usia2)
+            intent.putExtra(DetailCovidActivity.EXTRA_JUMLAH_USIA2, jumlahUsia2)
+            intent.putExtra(DetailCovidActivity.EXTRA_USIA3, usia3)
+            intent.putExtra(DetailCovidActivity.EXTRA_JUMLAH_USIA3, jumlahUsia3)
+            intent.putExtra(DetailCovidActivity.EXTRA_USIA4, usia4)
+            intent.putExtra(DetailCovidActivity.EXTRA_JUMLAH_USIA4, jumlahUsia4)
+            intent.putExtra(DetailCovidActivity.EXTRA_USIA5, usia5)
+            intent.putExtra(DetailCovidActivity.EXTRA_JUMLAH_USIA5, jumlahUsia5)
+            intent.putExtra(DetailCovidActivity.EXTRA_USIA6, usia6)
+            intent.putExtra(DetailCovidActivity.EXTRA_JUMLAH_USIA6, jumlahUsia6)
+
+            intent.putExtra(DetailCovidActivity.EXTRA_PRIA, pria)
+            intent.putExtra(DetailCovidActivity.EXTRA_JUMLAH_PRIA, jumlahPria)
+            intent.putExtra(DetailCovidActivity.EXTRA_WANITA, wanita)
+            intent.putExtra(DetailCovidActivity.EXTRA_JUMLAH_WANITA, jumlahWanita)
+
+            intent.putExtra(DetailCovidActivity.EXTRA_DATE, tanggal)
+            intent.putExtra(DetailCovidActivity.EXTRA_PENAMBAHAN_MENINGGAL, penambahanMeninggal)
+            intent.putExtra(DetailCovidActivity.EXTRA_PENAMBAHAN_POSITIF, penambahanPositif)
+            intent.putExtra(DetailCovidActivity.EXTRA_PENAMBAHAN_SEMBUH, penambahanSembuh)
+            intent.putExtra(DetailCovidActivity.EXTRA_POSITIF, positif)
+            intent.putExtra(DetailCovidActivity.EXTRA_MENINGGAL, meninggal)
+            intent.putExtra(DetailCovidActivity.EXTRA_TERKONFIRMASI, terkonfirmasi)
+            intent.putExtra(DetailCovidActivity.EXTRA_SEMBUH, sembuh)
+            intent.putExtra(DetailCovidActivity.EXTRA_PROVINSI, provinsi)
+
+
+            requireContext().startActivity(intent)
+        }
     }
 
     private fun bottomNavigation() {
@@ -151,10 +219,10 @@ class HomeFragment : Fragment() {
                                 binding.progressBar.visibility = View.GONE
                                 if (resource.data?.isSuccessful!!) {
 //                                    Log.d("getDate: ", resource.data.body()?.last_date.toString())
-//                                    Log.d("getProvinsi: ", resource.data.body()?.list_data.toString())
                                     @Suppress("UNCHECKED_CAST")
                                     showProvince(resource.data.body()?.list_data!! as List<Province>, key)
-                                    binding.textDateContent.text = resource.data.body()?.last_date
+                                    tanggal = resource.data.body()?.last_date.toString()
+                                    binding.textDateContent.text = tanggal
                                 } else {
                                     Toast.makeText(context, "Gagal Load Data Provinsi", Toast.LENGTH_SHORT).show()
                                 }
@@ -175,16 +243,54 @@ class HomeFragment : Fragment() {
     private fun showProvince(province : List<Province>, key : String) {
         for (prov in province){
             if (prov.key == key){
-                binding.include.textTerkonfirmasi.text = prov.jumlah_dirawat.toString()
-                binding.include2.textKasus.text = prov.jumlah_kasus.toString()
-                binding.include3.textSembuh.text = prov.jumlah_sembuh.toString()
-                binding.include4.textMeninggal.text = prov.jumlah_meninggal.toString()
+                binding.include.textTerkonfirmasi.text = NumberFormat.getInstance().format(prov.jumlah_dirawat?.toFloat())
+                binding.include2.textKasus.text = NumberFormat.getInstance().format(prov.jumlah_kasus?.toFloat())
+                binding.include3.textSembuh.text = NumberFormat.getInstance().format(prov.jumlah_sembuh?.toFloat())
+                binding.include4.textMeninggal.text = NumberFormat.getInstance().format(prov.jumlah_meninggal?.toFloat())
 
-                Log.d( "Provinsi", prov.key.toString())
-                Log.d( "Dirawat", prov.jumlah_dirawat.toString())
-                Log.d( "Kasus", prov.jumlah_kasus.toString())
-                Log.d( "Sembuh", prov.jumlah_sembuh.toString())
-                Log.d( "Meninggal", prov.jumlah_meninggal.toString())
+                terkonfirmasi = prov.jumlah_dirawat.toString()
+                positif = prov.jumlah_kasus.toString()
+                meninggal = prov.jumlah_meninggal.toString()
+                sembuh = prov.jumlah_sembuh.toString()
+
+
+//                Log.d( "Provinsi", prov.key.toString())
+//                Log.d( "Dirawat", prov.jumlah_dirawat.toString())
+//                Log.d( "Kasus", prov.jumlah_kasus.toString())
+//                Log.d( "Sembuh", prov.jumlah_sembuh.toString())
+//                Log.d( "Meninggal", prov.jumlah_meninggal.toString())
+
+                provinsi = prov.key
+
+                pria = prov.jenis_kelamin!![0]?.key.toString()
+                jumlahPria = prov.jenis_kelamin[0]?.doc_count.toString()
+                wanita = prov.jenis_kelamin!![1]?.key.toString()
+                jumlahWanita = prov.jenis_kelamin[1]?.doc_count.toString()
+
+                usia1 = prov.kelompok_umur!![0]?.key.toString()
+                jumlahUsia1 = prov.kelompok_umur!![0]?.doc_count.toString()
+                usia2 = prov.kelompok_umur!![1]?.key.toString()
+                jumlahUsia2 = prov.kelompok_umur!![1]?.doc_count.toString()
+                usia3 = prov.kelompok_umur!![2]?.key.toString()
+                jumlahUsia3 = prov.kelompok_umur!![2]?.doc_count.toString()
+                usia4 = prov.kelompok_umur!![3]?.key.toString()
+                jumlahUsia4 = prov.kelompok_umur!![3]?.doc_count.toString()
+                usia5 = prov.kelompok_umur!![4]?.key.toString()
+                jumlahUsia5 = prov.kelompok_umur!![4]?.doc_count.toString()
+                usia6 = prov.kelompok_umur!![5]?.key.toString()
+                jumlahUsia6 = prov.kelompok_umur!![5]?.doc_count.toString()
+
+                penambahanPositif = prov.penambahan?.positif.toString()
+                penambahanMeninggal = prov.penambahan?.meninggal.toString()
+                penambahanSembuh = prov.penambahan?.sembuh.toString()
+
+                Log.e("Kelompok Usia", prov.kelompok_umur.toString())
+
+//                binding.btnSelengkapnya.setOnClickListener {
+//                    val intent = Intent(requireContext() , DetailCovidActivity::class.java)
+//                    intent.putExtra(DetailCovidActivity.EXTRA_USIA, usia)
+//                    requireContext().startActivity(intent)
+//                }
             }
         }
     }

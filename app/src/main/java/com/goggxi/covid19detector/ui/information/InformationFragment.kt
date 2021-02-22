@@ -46,7 +46,7 @@ class InformationFragment : Fragment() {
         bottomNavigation()
 
         binding.btnMengenal.setOnClickListener {
-            Toast.makeText(context, "Mengenal", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(context, "Mengenal", Toast.LENGTH_SHORT).show()
             findNavController().navigate(R.id.action_informasiFragment_to_knowCovidFragment)
         }
         binding.btnMencegah.setOnClickListener {

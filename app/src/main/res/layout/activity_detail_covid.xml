@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.detailcovidprovince.DetailCovidActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green1">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar1"
+            app:titleTextColor="@color/white"
+            android:layout_width="match_parent"
+            app:title="Detail Covid-19"
+            android:layout_height="?attr/actionBarSize"
+            app:titleTextAppearance="@style/collapsed_toolbar_title"
+            app:layout_collapseMode="pin"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txtProv"
+                style="@style/textStyle_16_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Provinsi"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtProvince"
+                style="@style/textStyle_22_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtProv"
+                tools:text="SULAWESI SELATAN" />
+
+            <TextView
+                android:id="@+id/txtDate"
+                style="@style/textStyle_12_semiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Tanggal : "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtProvince" />
+
+            <TextView
+                android:id="@+id/txtDateCovidDetail"
+                style="@style/textStyle_12_semiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toEndOf="@+id/txtDate"
+                app:layout_constraintTop_toBottomOf="@+id/txtProvince"
+                tools:text="Tanggal : 20-20-2021" />
+
+            <TextView
+                android:id="@+id/txtPenambahan"
+                style="@style/textStyle_16_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/black"
+                android:text="Penambahan Kasus"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtDateCovidDetail" />
+
+            <TextView
+                android:id="@+id/txtPenambahanMeninggal"
+                style="@style/textStyle_12_semiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Meninggal :"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtPenambahan" />
+
+            <TextView
+                android:id="@+id/txtJumlahPenambahanMeninggal"
+                style="@style/textStyle_12_semiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/black"
+                android:text="20,000"
+                app:layout_constraintStart_toEndOf="@+id/txtPenambahanMeninggal"
+                app:layout_constraintTop_toBottomOf="@+id/txtPenambahan" />
+
+            <TextView
+                android:id="@+id/txtPenambahanPositif"
+                style="@style/textStyle_12_semiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Positif : "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtPenambahanMeninggal" />
+
+            <TextView
+                android:id="@+id/txtJumlahPenambahanPositif"
+                style="@style/textStyle_12_semiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/black"
+                android:text="201,999"
+                app:layout_constraintStart_toEndOf="@+id/txtPenambahanPositif"
+                app:layout_constraintTop_toBottomOf="@+id/txtPenambahanMeninggal" />
+
+            <TextView
+                android:id="@+id/txtPenambahanSembuh"
+                style="@style/textStyle_12_semiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Sembuh : "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtPenambahanPositif" />
+
+            <TextView
+                android:id="@+id/txtJumlahPenambahanSembuh"
+                style="@style/textStyle_12_semiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/black"
+                android:text="109,666"
+                app:layout_constraintStart_toEndOf="@+id/txtPenambahanSembuh"
+                app:layout_constraintTop_toBottomOf="@+id/txtPenambahanPositif" />
+
+            <TextView
+                android:id="@+id/txtTotal"
+                style="@style/textStyle_16_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/black"
+                android:text="Total Kasus"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtPenambahanSembuh" />
+
+            <TextView
+                android:id="@+id/txtTerkonfirmasi"
+                style="@style/textStyle_12_semiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Terkonfirmasi :"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtTotal" />
+
+            <TextView
+                android:id="@+id/txtJumlahTerkonfirmasi"
+                style="@style/textStyle_12_semiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/black"
+                android:text="20,000"
+                app:layout_constraintStart_toEndOf="@+id/txtTerkonfirmasi"
+                app:layout_constraintTop_toBottomOf="@+id/txtTotal" />
+
+            <TextView
+                android:id="@+id/txtMeninggal"
+                style="@style/textStyle_12_semiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Meninggal :"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtTerkonfirmasi" />
+
+            <TextView
+                android:id="@+id/txtJumlahMeninggal"
+                style="@style/textStyle_12_semiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/black"
+                android:text="20,000"
+                app:layout_constraintStart_toEndOf="@+id/txtMeninggal"
+                app:layout_constraintTop_toBottomOf="@+id/txtTerkonfirmasi" />
+
+            <TextView
+                android:id="@+id/txtPositif"
+                style="@style/textStyle_12_semiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Positif : "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtMeninggal" />
+
+            <TextView
+                android:id="@+id/txtJumlahPositif"
+                style="@style/textStyle_12_semiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/black"
+                android:text="201,999"
+                app:layout_constraintStart_toEndOf="@+id/txtPositif"
+                app:layout_constraintTop_toBottomOf="@+id/txtMeninggal" />
+
+            <TextView
+                android:id="@+id/txtSembuh"
+                style="@style/textStyle_12_semiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Sembuh : "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtPositif" />
+
+            <TextView
+                android:id="@+id/txtJumlahSembuh"
+                style="@style/textStyle_12_semiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/black"
+                android:text="109,666"
+                app:layout_constraintStart_toEndOf="@+id/txtSembuh"
+                app:layout_constraintTop_toBottomOf="@+id/txtPositif" />
+
+            <TextView
+                android:id="@+id/txtJenisKelamin"
+                style="@style/textStyle_16_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/black"
+                android:text="Berdasarkan Jenis Kelamin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtSembuh" />
+
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/chartJenisKelamin"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtJenisKelamin" />
+
+            <TextView
+                android:id="@+id/txtUsia"
+                style="@style/textStyle_16_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/black"
+                android:text="Berdasarkan Usia"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/chartJenisKelamin" />
+
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/chartUsia"
+                android:layout_width="match_parent"
+                android:layout_height="440dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtUsia" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

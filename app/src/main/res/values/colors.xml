@@ -18,4 +18,12 @@
     <color name="grey1">#9A9A9A</color>
     <color name="colorBackgroundShade">#EBEEF6</color>
     <color name="colorSelectedBackground">@color/green1</color>
+
+    <color name="color1">#46f33a</color>
+    <color name="color2">#7066ff</color>
+    <color name="color3">#f3da3a</color>
+    <color name="color4">#f33a3a</color>
+    <color name="color5">#4E96ED</color>
+    <color name="color6">#f36b3a</color>
+
 </resources>

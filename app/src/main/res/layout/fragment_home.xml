@@ -71,6 +71,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:startIconDrawable="@drawable/ic_lokasi"
+                android:maxLines="1"
+                android:lines="1"
                 app:startIconTint="@color/green1">
 
                 <AutoCompleteTextView
@@ -78,6 +80,8 @@
                     style="@style/textStyle_12"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:maxLines="1"
+                    android:lines="1"
                     tools:ignore="LabelFor" />
 
             </com.google.android.material.textfield.TextInputLayout>
