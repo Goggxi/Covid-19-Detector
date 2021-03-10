@@ -11,7 +11,7 @@ import android.view.Window
 import androidx.navigation.fragment.findNavController
 import com.goggxi.covid19detector.R
 
-
+@Suppress("DEPRECATION")
 class SplashFragment : Fragment() {
 
 
@@ -33,3 +33,7 @@ class SplashFragment : Fragment() {
     }
 
 }
+//
+//val intent = Intent(this, MainActivity::class.java)
+//startActivity(intent)
+//finish()
