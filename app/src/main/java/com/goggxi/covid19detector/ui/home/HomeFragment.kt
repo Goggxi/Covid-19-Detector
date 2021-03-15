@@ -425,7 +425,7 @@ class HomeFragment : Fragment() {
                             }
                             Status.ERROR -> {
                                 binding.progressBar.visibility = View.GONE
-                                Toast.makeText(context, "Gagal Memuat Data", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(context, "Error Memuat Data Berita", Toast.LENGTH_SHORT).show()
                                 Log.e("error", it.message.toString())
                             }
                             Status.LOADING -> {

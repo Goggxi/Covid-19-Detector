@@ -6,11 +6,11 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Matrix
 import android.os.Bundle
+import android.os.SystemClock
 import android.provider.MediaStore
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
@@ -24,10 +24,14 @@ import java.io.IOException
 class ClassificationFragment : Fragment() {
     private lateinit var binding: FragmentClassificationBinding
     private lateinit var mBitmap: Bitmap
+    private lateinit var classificationAlgorithm: ClassificationAlgorithm
 
     private val inputSize = 224
     private val pickCameraRequestCode = 1
     private val pickGalleryRequestCode = 2
+    private val mModelPath = "Models-Covid19-CNN-v2.tflite"
+    private val mLabelPath = "labels.txt"
+    private var lastProcessingTimeMs: Long = 0
 
 
     override fun onCreateView(
@@ -49,18 +53,20 @@ class ClassificationFragment : Fragment() {
             crossfade(500)
             transformations(RoundedCornersTransformation(0F, 0F, 80F, 80F))
         }
+
+        binding.toolbar.inflateMenu(R.menu.upload_menu)
     }
 
     @SuppressLint("MissingSuperCall", "SetTextI18n")
     @Suppress("DEPRECATION")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        val menuUpload = binding.toolbar.menu.findItem(R.id.upload_menu)
         if(requestCode == pickCameraRequestCode) {
             if (data != null) {
 //                val uri = data.data
                 mBitmap = data.extras?.get("data") as Bitmap
 //                val bytes = ByteArrayOutputStream()
 //                mBitmap.compress(Bitmap.CompressFormat.JPEG, 50, bytes)
-
 //                try {
 //                    mBitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, uri)
 //                } catch (e: IOException) {
@@ -69,6 +75,8 @@ class ClassificationFragment : Fragment() {
 
                 mBitmap = scaleImage(mBitmap)
                 binding.imgClassification.setImageBitmap(mBitmap)
+                binding.btnKlasifikasi.isEnabled = true
+                menuUpload.isVisible = true
             }
         } else if (requestCode == pickGalleryRequestCode) {
             if (data != null) {
@@ -82,16 +90,29 @@ class ClassificationFragment : Fragment() {
 
                 mBitmap = scaleImage(mBitmap)
                 binding.imgClassification.setImageBitmap(mBitmap)
+
+                binding.btnKlasifikasi.isEnabled = true
+                menuUpload.isVisible = true
             }
         } else {
             Toast.makeText(context, "Unrecognized request code", Toast.LENGTH_LONG).show()
         }
     }
 
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setHasOptionsMenu(true)
+//    }
+
     override fun onStart() {
         super.onStart()
+        classificationAlgorithm()
         bottomNavigation()
         initAction()
+    }
+
+    private fun classificationAlgorithm() {
+        classificationAlgorithm = ClassificationAlgorithm(activity?.assets!!, mModelPath, mLabelPath, inputSize)
     }
 
     private fun pickPhoto() {
@@ -121,13 +142,49 @@ class ClassificationFragment : Fragment() {
         builder.show()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun initAction() {
+        binding.toolbar.setOnMenuItemClickListener {
+            when(it.itemId) {
+                R.id.upload_menu -> {
+                    Toast.makeText(context , "Upload Image", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                else -> false
+            }
+        }
+
         binding.btnAddPhoto.setOnClickListener {
             pickPhoto()
         }
+
+        binding.btnKlasifikasi.setOnClickListener {
+            val startTime = SystemClock.uptimeMillis()  //menghitung waktu awal
+            val results = classificationAlgorithm.recognizeImage(mBitmap).firstOrNull()
+
+            when {
+                results?.title.equals("Covid") -> {
+                    binding.txtHasil.setTextColor(ContextCompat.getColor( requireContext() , R.color.red1))
+                    binding.txtHasil.text= results?.title
+                }
+                results?.title.equals("Viral Pneumonia") -> {
+                    binding.txtHasil.setTextColor(ContextCompat.getColor( requireContext() , R.color.red1))
+                    binding.txtHasil.text= results?.title
+                }
+                else -> {
+                    binding.txtHasil.setTextColor(ContextCompat.getColor( requireContext() , R.color.green1))
+                    binding.txtHasil.text= results?.title
+                }
+            }
+
+            binding.txtResultPropabilitas.text= results?.percent.toString() + "%"
+            lastProcessingTimeMs = SystemClock.uptimeMillis() - startTime//menghitung lamanya proses
+            val waktu = lastProcessingTimeMs.toString() //konversi ke string
+            binding.txtResultWaktuDeteksi.text = "$waktu ms "
+        }
     }
 
-    fun scaleImage(bitmap: Bitmap?): Bitmap {
+    private fun scaleImage(bitmap: Bitmap?): Bitmap {
         val orignalWidth = bitmap!!.width
         val originalHeight = bitmap.height
         val scaleWidth = inputSize.toFloat() / orignalWidth
@@ -148,4 +205,9 @@ class ClassificationFragment : Fragment() {
         // Setup bottom navigation view
         binding.bottomNavigationId.setupWithNavController(navController)
     }
+
+//    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//        inflater.inflate(R.menu.upload_menu , menu)
+//    }
+
 }

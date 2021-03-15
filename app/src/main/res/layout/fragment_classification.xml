@@ -95,7 +95,7 @@
 
             <Button
                 style="@style/Widget.MaterialComponents.Button.Icon"
-                android:id="@+id/btn_mengenal"
+                android:id="@+id/btn_klasifikasi"
                 android:layout_width="match_parent"
                 android:layout_height="64dp"
                 android:layout_marginTop="16dp"
@@ -114,7 +114,8 @@
                 app:rippleColor="@color/green1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_addPhoto" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_addPhoto"
+                android:enabled="false"/>
 
             <TextView
                 style="@style/textStyle_12"
@@ -125,18 +126,18 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_mengenal"/>
+                app:layout_constraintTop_toBottomOf="@+id/btn_klasifikasi"/>
 
             <TextView
                 style="@style/textStyle_12_semiBold"
                 android:id="@+id/txtHasil"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="COVID-19"
+                android:text="-"
                 android:layout_marginStart="6dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintLeft_toRightOf="@id/txtJudulHasil"
-                app:layout_constraintTop_toBottomOf="@+id/btn_mengenal"/>
+                app:layout_constraintTop_toBottomOf="@+id/btn_klasifikasi"/>
 
             <TextView
                 style="@style/textStyle_12"
@@ -154,7 +155,7 @@
                 android:id="@+id/txtResultPropabilitas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="97.776 %"
+                android:text="-"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="6dp"
                 app:layout_constraintTop_toBottomOf="@+id/txtJudulHasil"
@@ -176,7 +177,7 @@
                 android:id="@+id/txtResultWaktuDeteksi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0.08 ms"
+                android:text="-"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="6dp"
                 app:layout_constraintTop_toBottomOf="@+id/txtJudulPropabilitas"
