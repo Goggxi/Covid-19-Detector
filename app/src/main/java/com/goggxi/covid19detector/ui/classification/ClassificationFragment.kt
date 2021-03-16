@@ -29,8 +29,8 @@ class ClassificationFragment : Fragment() {
     private val inputSize = 224
     private val pickCameraRequestCode = 1
     private val pickGalleryRequestCode = 2
-    private val mModelPath = "Models-Covid19-CNN-v2.tflite"
-    private val mLabelPath = "labels.txt"
+    private val mModelPath = "Models-Covid19-CNN-v1.tflite"
+    private val mLabelPath = "labels-v1.txt"
     private var lastProcessingTimeMs: Long = 0
 
 

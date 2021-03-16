@@ -42,7 +42,6 @@ import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class HomeFragment : Fragment() {
     private lateinit var sparkAdapter: CovidSparkAdapter
     private lateinit var binding: FragmentHomeBinding
