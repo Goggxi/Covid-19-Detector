@@ -28,6 +28,15 @@
             app:destination="@id/knowCovidFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_informasiFragment_to_anticipatingCovidFragment"
+            app:destination="@id/anticipatingCovidFragment" />
+        <action
+            android:id="@+id/action_informasiFragment_to_preventCovidFragment"
+            app:destination="@id/preventCovidFragment" />
+        <action
+            android:id="@+id/action_informasiFragment_to_treatCovidFragment"
+            app:destination="@id/treatCovidFragment" />
     </fragment>
     <fragment
         android:id="@+id/referralFragment"
@@ -56,4 +65,31 @@
         android:name="com.goggxi.covid19detector.ui.classification.ClassificationFragment"
         android:label="fragment_classification"
         tools:layout="@layout/fragment_classification" />
+    <fragment
+        android:id="@+id/anticipatingCovidFragment"
+        android:name="com.goggxi.covid19detector.ui.information.AnticipatingCovidFragment"
+        android:label="fragment_anticipating_covid"
+        tools:layout="@layout/fragment_anticipating_covid" >
+        <action
+            android:id="@+id/action_anticipatingCovidFragment_to_informasiFragment"
+            app:destination="@id/informasiFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/preventCovidFragment"
+        android:name="com.goggxi.covid19detector.ui.information.PreventCovidFragment"
+        android:label="fragment_prevent_covid"
+        tools:layout="@layout/fragment_prevent_covid" >
+        <action
+            android:id="@+id/action_preventCovidFragment_to_informasiFragment"
+            app:destination="@id/informasiFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/treatCovidFragment"
+        android:name="com.goggxi.covid19detector.ui.information.TreatCovidFragment"
+        android:label="fragment_treat_covid"
+        tools:layout="@layout/fragment_treat_covid" >
+        <action
+            android:id="@+id/action_treatCovidFragment_to_informasiFragment"
+            app:destination="@id/informasiFragment" />
+    </fragment>
 </navigation>

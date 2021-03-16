@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ext="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.information.PreventCovidFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green1">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:fitsSystemWindows="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="Mencegah Covid-19"
+            app:titleTextAppearance="@style/collapsed_toolbar_title"
+            app:titleTextColor="@color/white"
+            app:navigationIcon="@drawable/ic_back"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@string/image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView4"
+                style="@style/textStyle_22_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/black"
+                android:text="Bagaimana Cara Mencegah Covid-19?"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+            <com.bluejamesbond.text.DocumentView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                ext:documentView_text="Coronavirus adalah keluarga besar virus yang menyebabkan penyakit mulai dari gejala ringan sampai berat. Ada setidaknya dua jenis coronavirus yang diketahui menyebabkan penyakit yang dapat menimbulkan gejala berat seperti Middle East Respiratory Syndrome (MERS) dan Severe Acute Respiratory Syndrome (SARS). Coronavirus Disease 2019 (COVID-19) adalah penyakit jenis baru yang belum pernah diidentifikasi sebelumnya pada manusia. Virus penyebab COVID-19 ini dinamakan Sars-CoV-2. Virus corona adalah zoonosis (ditularkan antara hewan dan manusia). Penelitian menyebutkan bahwa SARS ditransmisikan dari kucing luwak (civet cats) ke manusia dan MERS dari unta ke manusia. Adapun, hewan yang menjadi sumber penularan COVID-19 ini masih belum diketahui.
+                \n\nTanda dan gejala umum infeksi COVID-19 antara lain gejala gangguan pernapasan akut seperti demam, batuk dan sesak napas. Masa inkubasi rata-rata 5-6 hari dengan masa inkubasi terpanjang 14 hari. Pada kasus COVID-19 yang berat dapat menyebabkan pneumonia, sindrom pernapasan akut, gagal ginjal, dan bahkan kematian. Tanda-tanda dan gejala klinis yang dilaporkan pada sebagian besar kasus adalah demam, dengan beberapa kasus mengalami kesulitan bernapas, dan hasil rontgen menunjukkan infiltrat pneumonia luas di kedua paru.
+                \n\nPada 31 Desember 2019, WHO China Country Office melaporkan kasus pneumonia yang tidak diketahui etiologinya di Kota Wuhan, Provinsi Hubei, Cina. Pada tanggal 7 Januari 2020, Cina mengidentifikasi pneumonia yang tidak diketahui etiologinya tersebut sebagai jenis baru coronavirus (coronavirus disease, COVID-19). Pada tanggal 30 Januari 2020 WHO telah menetapkan sebagai Kedaruratan Kesehatan Masyarakat Yang Meresahkan Dunia/ Public Health Emergency of International Concern (KKMMD/PHEIC). Penambahan jumlah kasus COVID-19 berlangsung cukup cepat dan sudah terjadi penyebaran antar negara.
+                \n\nBerdasarkan bukti ilmiah, COVID-19 dapat menular dari manusia ke manusia melalui percikan batuk/bersin (droplet), tidak melalui udara. Orang yang paling berisiko tertular penyakit ini adalah orang yang kontak erat dengan pasien COVID-19 termasuk yang merawat pasien COVID-19. Rekomendasi standar untuk mencegah penyebaran infeksi adalah melalui cuci tangan secara teratur menggunakan sabun dan air bersih, menerapkan etika batuk dan bersin, menghindari kontak secara langsung dengan ternak dan hewan liar serta menghindari kontak dekat dengan siapapun yang menunjukkan gejala penyakit pernapasan seperti batuk dan bersin. Selain itu, menerapkan Pencegahan dan Pengendalian Infeksi (PPI) saat berada di fasilitas kesehatan terutama unit gawat darurat.
+                "
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                ext:documentView_textAlignment="justified"
+                ext:documentView_antialias="true"
+                ext:documentView_textColor="@color/textColor1"
+                ext:documentView_textFormat="plain"
+                ext:documentView_textSize="12sp"
+                ext:documentView_textSubPixel="true"
+                ext:documentView_cacheConfig="auto_quality"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

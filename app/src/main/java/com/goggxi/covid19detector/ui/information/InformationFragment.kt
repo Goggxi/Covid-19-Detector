@@ -50,13 +50,16 @@ class InformationFragment : Fragment() {
             findNavController().navigate(R.id.action_informasiFragment_to_knowCovidFragment)
         }
         binding.btnMencegah.setOnClickListener {
-            Toast.makeText(context, "Mencegah", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(context, "Mencegah", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_informasiFragment_to_preventCovidFragment)
         }
         binding.btnMengobati.setOnClickListener {
-            Toast.makeText(context, "Mengobati", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(context, "Mengobati", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_informasiFragment_to_treatCovidFragment)
         }
         binding.btnMengantisipasi.setOnClickListener {
-            Toast.makeText(context, "Mengantisipasi", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(context, "Mengantisipasi", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_informasiFragment_to_anticipatingCovidFragment)
         }
     }
 
