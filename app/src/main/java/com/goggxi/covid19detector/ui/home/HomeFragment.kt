@@ -78,7 +78,6 @@ class HomeFragment : Fragment() {
     private lateinit var meninggal : String
     private lateinit var terkonfirmasi : String
 
-
     companion object {
         const val TAG = "HomeFragment"
     }

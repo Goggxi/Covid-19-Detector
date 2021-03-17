@@ -29,8 +29,8 @@ class ClassificationFragment : Fragment() {
     private val inputSize = 224
     private val pickCameraRequestCode = 1
     private val pickGalleryRequestCode = 2
-    private val mModelPath = "Models-Covid19-CNN-v1.tflite"
-    private val mLabelPath = "labels-v1.txt"
+    private val mModelPath = "Models-Covid19-CNN-v3.tflite"
+    private val mLabelPath = "labels-v3.txt"
     private var lastProcessingTimeMs: Long = 0
 
 
@@ -163,12 +163,12 @@ class ClassificationFragment : Fragment() {
             val results = classificationAlgorithm.recognizeImage(mBitmap).firstOrNull()
 
             when {
-                results?.title.equals("Covid") -> {
+                results?.title.equals("COVID-19") -> {
                     binding.txtHasil.setTextColor(ContextCompat.getColor( requireContext() , R.color.red1))
                     binding.txtHasil.text= results?.title
                 }
-                results?.title.equals("Viral Pneumonia") -> {
-                    binding.txtHasil.setTextColor(ContextCompat.getColor( requireContext() , R.color.red1))
+                results?.title.equals("VIRAL PNEUMONIA") -> {
+                    binding.txtHasil.setTextColor(ContextCompat.getColor( requireContext() , R.color.blue1))
                     binding.txtHasil.text= results?.title
                 }
                 else -> {
