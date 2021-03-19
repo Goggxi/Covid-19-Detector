@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="94dp"
+    android:layout_height="100dp"
     android:layout_marginBottom="8dp"
     android:background="@drawable/bg_shape">
 
@@ -19,12 +19,14 @@
         android:contentDescription="@string/image" />
 
     <TextView
-        style="@style/textStyle_12_semiBold"
         android:id="@+id/textTitleReferral"
-        android:layout_width="224dp"
+        style="@style/textStyle_12_semiBold"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginEnd="4dp"
         android:layout_marginStart="18dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/iconReferralLocation"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,93 +35,92 @@
         style="@style/textStyle_10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
         android:layout_marginStart="18dp"
+        android:layout_marginBottom="2dp"
         android:text="@string/alamat"
         android:textColor="@color/textColor3"
-        app:layout_constraintStart_toEndOf="@+id/iconReferralLocation"
-        app:layout_constraintTop_toBottomOf="@+id/textTitleReferral" />
+        app:layout_constraintBottom_toTopOf="@+id/textRegionReferral"
+        app:layout_constraintStart_toEndOf="@+id/iconReferralLocation" />
 
     <TextView
         android:id="@+id/textAddressReferralContent"
         style="@style/textStyle_10"
         android:layout_width="224dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:textColor="@color/textColor3"
+        android:layout_marginBottom="2dp"
         android:maxLines="1"
-        app:layout_constraintStart_toEndOf="@+id/textAddressReferral"
-        app:layout_constraintTop_toBottomOf="@+id/textTitleReferral" />
+        android:textColor="@color/textColor3"
+        app:layout_constraintBottom_toTopOf="@+id/textRegionReferralContent"
+        app:layout_constraintStart_toEndOf="@+id/textAddressReferral"/>
 
     <TextView
         android:id="@+id/textRegionReferral"
         style="@style/textStyle_10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
         android:layout_marginStart="18dp"
+        android:layout_marginBottom="2dp"
         android:text="Wilayah :"
         android:textColor="@color/textColor3"
-        app:layout_constraintStart_toEndOf="@+id/iconReferralLocation"
-        app:layout_constraintTop_toBottomOf="@+id/textAddressReferral" />
+        app:layout_constraintBottom_toTopOf="@+id/textTelephoneReferral"
+        app:layout_constraintStart_toEndOf="@+id/iconReferralLocation" />
 
     <TextView
         android:id="@+id/textRegionReferralContent"
         style="@style/textStyle_10"
         android:layout_width="224dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:textColor="@color/textColor3"
+        android:layout_marginBottom="2dp"
         android:maxLines="1"
-        app:layout_constraintStart_toEndOf="@+id/textRegionReferral"
-        app:layout_constraintTop_toBottomOf="@+id/textAddressReferral" />
+        android:textColor="@color/textColor3"
+        app:layout_constraintBottom_toTopOf="@+id/textTelephoneReferralContent"
+        app:layout_constraintStart_toEndOf="@+id/textRegionReferral"/>
 
     <TextView
         android:id="@+id/textTelephoneReferral"
         style="@style/textStyle_10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
         android:layout_marginStart="18dp"
+        android:layout_marginBottom="2dp"
         android:text="@string/telepon"
         android:textColor="@color/textColor3"
-        app:layout_constraintStart_toEndOf="@+id/iconReferralLocation"
-        app:layout_constraintTop_toBottomOf="@+id/textRegionReferral" />
+        app:layout_constraintBottom_toTopOf="@+id/textProvinceReferral"
+        app:layout_constraintStart_toEndOf="@+id/iconReferralLocation"/>
 
     <TextView
         android:id="@+id/textTelephoneReferralContent"
         style="@style/textStyle_10"
         android:layout_width="224dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:textColor="@color/textColor3"
+        android:layout_marginBottom="2dp"
         android:maxLines="1"
-        app:layout_constraintStart_toEndOf="@+id/textTelephoneReferral"
-        app:layout_constraintTop_toBottomOf="@+id/textRegionReferral" />
+        android:textColor="@color/textColor3"
+        app:layout_constraintBottom_toTopOf="@+id/textProvinceReferralContent"
+        app:layout_constraintStart_toEndOf="@+id/textTelephoneReferral"/>
 
     <TextView
         android:id="@+id/textProvinceReferral"
         style="@style/textStyle_10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
         android:layout_marginStart="18dp"
+        android:layout_marginBottom="3dp"
         android:text="@string/provinsi"
         android:textColor="@color/textColor3"
-        app:layout_constraintStart_toEndOf="@+id/iconReferralLocation"
-        app:layout_constraintTop_toBottomOf="@+id/textTelephoneReferral" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iconReferralLocation" />
 
     <TextView
         android:id="@+id/textProvinceReferralContent"
         style="@style/textStyle_10"
         android:layout_width="224dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:textColor="@color/textColor3"
         android:maxLines="1"
-        app:layout_constraintStart_toEndOf="@+id/textTelephoneReferral"
-        app:layout_constraintTop_toBottomOf="@+id/textTelephoneReferral" />
-
+        android:layout_marginBottom="3dp"
+        android:textColor="@color/textColor3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textTelephoneReferral" />
 
     <Button
         style="@style/ShapeAppearance.App.SmallComponent"

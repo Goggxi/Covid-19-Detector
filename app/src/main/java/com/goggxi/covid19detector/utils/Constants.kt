@@ -12,7 +12,7 @@ object Constants {
     const val INDONESIA_DETAIL_URL = "update.json"
 
 //    const val NEWS_BASE_URL = "https://cnnidn-rest-api.herokuapp.com/"
-    const val NEWS_BASE_URL = "http://192.168.43.128:5000/"
+    const val NEWS_BASE_URL = "http://10.175.86.233:5000/"
     const val NEWS_URL = "search/?q=covid"
     const val NEWS_DETAIL_URL = "/detail/?url="
 
