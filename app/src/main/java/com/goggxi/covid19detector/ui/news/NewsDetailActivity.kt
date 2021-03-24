@@ -46,10 +46,9 @@ class NewsDetailActivity : AppCompatActivity() {
 
         val url = intent.getStringExtra(EXTRA_NEWS_DETAIL)
 
+        Log.e("Result NEWS DETAIL", url!! )
         setupViewModel()
-        if (url != null) {
-            getNewsDetail(url)
-        }
+        getNewsDetail(url)
     }
 
     override fun onOptionsItemSelected(@NotNull item: MenuItem): Boolean {
@@ -71,6 +70,7 @@ class NewsDetailActivity : AppCompatActivity() {
         val progressBar: ProgressBar = findViewById(R.id.progressBar)
 
         newsDetailViewModel.getNewsDetail(url).observe(
+
                 this,
                 {
                     it?.let { resource ->
@@ -82,6 +82,7 @@ class NewsDetailActivity : AppCompatActivity() {
                                     @Suppress("UNCHECKED_CAST")
                                     showNewsDetail(resource.data.body()?.data as List<DataItem>)
                                 } else {
+                                    Log.e("Error NEWS DETAIL", url )
                                     Toast.makeText(this, "Gagal Load Data Detail Berita", Toast.LENGTH_SHORT).show()
                                 }
                             }

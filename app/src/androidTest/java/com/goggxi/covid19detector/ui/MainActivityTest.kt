@@ -7,7 +7,9 @@ import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.RecyclerViewActions
+import androidx.test.espresso.matcher.RootMatchers.isDialog
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
@@ -98,8 +100,18 @@ class MainActivityTest {
     @Test
     fun testKlasifikasiFragment() {
         sleep(8000)
+
         Espresso.onView(allOf(ViewMatchers.withId(R.id.classificationFragment))).perform(click())
         Espresso.onView(allOf(ViewMatchers.withId(R.id.bottom_navigation_id), isDisplayed()))
+
+        Espresso.onView(allOf(ViewMatchers.withId(R.id.btn_addPhoto))).perform(click())
+
+//        Espresso.onView(allOf(ViewMatchers.withText("Pilih Foto Dari Galeri")))
+//            .inRoot(isDialog())
+//            .check(matches(isDisplayed()))
+//            .perform(click())
+
+//        Espresso.onView(allOf(ViewMatchers.withId(R.id.imgClassification), isDisplayed()))
     }
 
     @Test

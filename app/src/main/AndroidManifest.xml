@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-feature android:name="android.hardware.camera" android:required="true" />
 
+<!--    android:usesCleartextTraffic="true"-->
 
     <application
         android:allowBackup="true"
@@ -17,7 +18,6 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/covid_logo"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Covid19Detector"
         tools:targetApi="m">
         <activity android:name=".ui.detailcovidprovince.DetailCovidActivity"/>

@@ -2,6 +2,7 @@ package com.goggxi.covid19detector.ui.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -51,6 +52,7 @@ class NewsAdapter(private val listNews: ArrayList<News?>?) : RecyclerView.Adapte
 
                     val intent = Intent(itemView.context, NewsDetailActivity::class.java)
                     intent.putExtra(NewsDetailActivity.EXTRA_NEWS_DETAIL, news.link)
+                    Log.e("EXTRA NEWS DETAIL ", news.link)
                     itemView.context.startActivity(intent)
                 }
 

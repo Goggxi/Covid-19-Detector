@@ -11,10 +11,7 @@ import com.goggxi.covid19detector.utils.Constants.NEWS_URL
 import com.goggxi.covid19detector.utils.Constants.PROVINCE_URL
 import com.goggxi.covid19detector.utils.Constants.REFERRAL_URL
 import retrofit2.Response
-import retrofit2.http.Field
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 /**
  * Created By Goggxi on 16/12/2020.
@@ -34,9 +31,9 @@ interface ApiService {
     suspend fun getNews(
     ): Response<NewsResponse>
 
-    @GET("/detail/")
+    @GET("/api/v1/cnn-idn-news/detail/")
     suspend fun getNewsDetail(
-        @Query("url") link: String
+        @Query("url", encoded = true) link: String
     ): Response<NewsDetailResponse>
 
     @GET(REFERRAL_URL)
