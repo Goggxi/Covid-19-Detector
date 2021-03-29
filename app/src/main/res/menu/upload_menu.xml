@@ -6,7 +6,17 @@
         android:id="@+id/upload_menu"
         android:icon="@drawable/ic_upload"
         android:title="Upload"
-        android:visible="false"
         app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/show_all_image"
+        android:title="Tampilkan Semua Gambar"/>
+
+<!--    <item-->
+<!--        android:id="@+id/upload_menu"-->
+<!--        android:icon="@drawable/ic_upload"-->
+<!--        android:title="Upload"-->
+<!--        android:visible="false"-->
+<!--        app:showAsAction="always"/>-->
 
 </menu>

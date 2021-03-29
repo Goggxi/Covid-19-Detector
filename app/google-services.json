@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "756362238401",
+    "project_id": "covid-19-detector-images",
+    "storage_bucket": "covid-19-detector-images.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:756362238401:android:3908d67b80fcce73843740",
+        "android_client_info": {
+          "package_name": "com.goggxi.covid19detector"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "756362238401-64aj2vl5haskqk52eva1abg6i0sfpqjh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhv_USCqHP8u9p0MDfryJGk2I_J_qflMM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "756362238401-64aj2vl5haskqk52eva1abg6i0sfpqjh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

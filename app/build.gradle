@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -95,6 +96,8 @@ dependencies {
 
     //Chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'com.google.firebase:firebase-storage:19.2.2'
+    implementation 'com.google.firebase:firebase-database:19.7.0'
 
 //    // Here Maps
 //    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])

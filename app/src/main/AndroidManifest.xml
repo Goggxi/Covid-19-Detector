@@ -8,9 +8,10 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
 
-<!--    android:usesCleartextTraffic="true"-->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -20,7 +21,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Covid19Detector"
         tools:targetApi="m">
-        <activity android:name=".ui.detailcovidprovince.DetailCovidActivity"/>
+        <activity android:name=".ui.classification.ShowImageActivity"/>
+        <activity android:name=".ui.detailcovidprovince.DetailCovidActivity" />
         <activity android:name=".ui.news.NewsDetailActivity" />
         <activity android:name=".ui.MainActivity">
             <intent-filter>
