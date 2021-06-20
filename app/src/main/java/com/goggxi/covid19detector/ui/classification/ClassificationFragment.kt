@@ -246,7 +246,7 @@ class ClassificationFragment : Fragment() {
                 binding.txtResultWaktuDeteksi.text = "$waktu ms "
 
             } else {
-                Toast.makeText(context, "Silihkan Pilih Foto", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Silahkan Pilih Foto", Toast.LENGTH_SHORT).show()
             }
         }
     }
