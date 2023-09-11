@@ -27,37 +27,37 @@
         app:layout_constraintStart_toEndOf="@+id/imgRowNews"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textTypeNewsContent"
-        style="@style/textStyle_10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:layout_marginStart="11dp"
-        android:text="@string/berita"
-        app:layout_constraintBottom_toTopOf="@+id/textTimeNews"
-        app:layout_constraintStart_toEndOf="@+id/imgRowNews" />
+<!--    <TextView-->
+<!--        android:id="@+id/textTypeNewsContent"-->
+<!--        style="@style/textStyle_10"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="4dp"-->
+<!--        android:layout_marginStart="11dp"-->
+<!--        android:text="@string/berita"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/textTimeNews"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/imgRowNews" />-->
 
-    <TextView
-        android:id="@+id/textAddressReferralContent"
-        style="@style/textStyle_10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="27dp"
-        app:layout_constraintStart_toEndOf="@+id/textTypeNewsContent"
-        app:layout_constraintTop_toBottomOf="@+id/textTitleNews" />
+<!--    <TextView-->
+<!--        android:id="@+id/textAddressReferralContent"-->
+<!--        style="@style/textStyle_10"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="27dp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/textTypeNewsContent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textTitleNews" />-->
 
-    <TextView
-        android:id="@+id/textTimeNews"
-        style="@style/textStyle_10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginStart="11dp"
-        android:textColor="@color/textColor2"
-        android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgRowNews" />
+<!--    <TextView-->
+<!--        android:id="@+id/textTimeNews"-->
+<!--        style="@style/textStyle_10"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:layout_marginStart="11dp"-->
+<!--        android:textColor="@color/textColor2"-->
+<!--        android:textStyle="italic"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/imgRowNews" />-->
 
     <Button
         style="@style/ShapeAppearance.App.SmallComponent"

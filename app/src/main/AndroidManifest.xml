@@ -12,6 +12,9 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +22,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/covid_logo"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.Covid19Detector"
         tools:targetApi="m">
         <activity android:name=".ui.classification.ShowImageActivity"/>

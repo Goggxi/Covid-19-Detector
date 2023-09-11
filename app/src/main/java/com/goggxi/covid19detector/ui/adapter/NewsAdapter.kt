@@ -43,8 +43,8 @@ class NewsAdapter(private val listNews: ArrayList<News?>?) : RecyclerView.Adapte
                     transformations(RoundedCornersTransformation(10F))
                 }
                 textTitleNews.text = news.judul
-                textTypeNewsContent.text = news.tipe
-                textTimeNews.text = news.waktu
+//                textTypeNewsContent.text = news.tipe
+//                textTimeNews.text = news.waktu
 
                 btnRead.setOnClickListener {
 

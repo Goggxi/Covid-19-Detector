@@ -1,34 +1,113 @@
 {
   "project_info": {
-    "project_number": "756362238401",
-    "project_id": "covid-19-detector-images",
-    "storage_bucket": "covid-19-detector-images.appspot.com"
+    "project_number": "794740633526",
+    "project_id": "goggxi-project-42b54",
+    "storage_bucket": "goggxi-project-42b54.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:756362238401:android:3908d67b80fcce73843740",
+        "mobilesdk_app_id": "1:794740633526:android:56f42df8532f3022f69b17",
         "android_client_info": {
           "package_name": "com.goggxi.covid19detector"
         }
       },
       "oauth_client": [
         {
-          "client_id": "756362238401-64aj2vl5haskqk52eva1abg6i0sfpqjh.apps.googleusercontent.com",
+          "client_id": "794740633526-cj5nbis9dt7is3o6r60qlleglmbtioo0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAhv_USCqHP8u9p0MDfryJGk2I_J_qflMM"
+          "current_key": "AIzaSyAmyQEWcl5CS_qiGq3kn6gBp8rLiNaG-Pw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "756362238401-64aj2vl5haskqk52eva1abg6i0sfpqjh.apps.googleusercontent.com",
+              "client_id": "794740633526-cj5nbis9dt7is3o6r60qlleglmbtioo0.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "794740633526-kjeouj5iej5nv0prtl23p1v93irdbuoi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.goggxi.eod"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794740633526:android:e5effb58be76d4daf69b17",
+        "android_client_info": {
+          "package_name": "com.goggxi.eod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "794740633526-cj5nbis9dt7is3o6r60qlleglmbtioo0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmyQEWcl5CS_qiGq3kn6gBp8rLiNaG-Pw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "794740633526-cj5nbis9dt7is3o6r60qlleglmbtioo0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "794740633526-kjeouj5iej5nv0prtl23p1v93irdbuoi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.goggxi.eod"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794740633526:android:f42798be4a11ce56f69b17",
+        "android_client_info": {
+          "package_name": "com.goggxi.iud"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "794740633526-cj5nbis9dt7is3o6r60qlleglmbtioo0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmyQEWcl5CS_qiGq3kn6gBp8rLiNaG-Pw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "794740633526-cj5nbis9dt7is3o6r60qlleglmbtioo0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "794740633526-kjeouj5iej5nv0prtl23p1v93irdbuoi.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.goggxi.eod"
+              }
             }
           ]
         }
